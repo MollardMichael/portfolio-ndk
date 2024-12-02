@@ -1,17 +1,15 @@
 {
-  "name": "@example/starter",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
-  "devDependencies": {
-    "@astrojs/preact": "^1.0.2",
-    "@astrojs/sitemap": "^1.0.0",
-    "@netlify/netlify-marketing-tokens": "^1.1.0",
-    "astro": "^2.0.0"
-  }
+	"name": "@example/starter",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview"
+	},
+	"devDependencies": {
+		"@astrojs/sitemap": "^3.2.1",
+		"astro": "^4.16.16"
+	}
 }
