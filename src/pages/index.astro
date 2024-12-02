@@ -1,108 +1,105 @@
 ---
-import Layout from '../components/layout.astro';
+import Layout from "../components/layout.astro";
+
+const projects = [
+	{
+		title: "料金比較のセレクトラ",
+		image: "/images/selectra.png",
+		description: "料金比較サイト「セレクトラ」のUI/UX改善",
+		link: "https://docs.google.com/presentation/d/e/2PACX-1vT33otSCt5AzZBM_MrFUYPOizabb0WLMtgY8ksN2ELSJW93j0Xpnl3WPIm-Ge1lwjFuBLC999h5NMEu/pub?start=false&loop=false&delayms=3000",
+	},
+	{
+		title: "Artfull",
+		image: "/images/art.png",
+		description: "【架空】アートギャラリー向けスマホアプリ",
+		link: "https://docs.google.com/presentation/d/e/2PACX-1vRMIEGfJQ1kB78RkgIkb4CMvSkwrH4vOvHc_ZGb0CITCZrb6j-fJbaQ5Gfbrbcw2Ttw6TRkqWcmo_b7/pub?start=false&loop=false&delayms=3000",
+	},
+	{
+		title: "Chrome typeの習作",
+		image: "/images/rei-dreamy.png",
+		description: "会社の先輩の名前でロゴを作成しステッカーにしてプレゼントした",
+		link: "/images/rei-dreamy.png",
+	},
+];
 ---
 
 <style>
-.steps {
-  background: var(--light);
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: min(90vw, 250px);
-  justify-content: center;
-  margin-top: 3rem;
-  padding: 5rem 5vw;
-  width: 100vw;
-}
-
-@media (min-width: 550px) {
-  .steps {
-    grid-template-columns: repeat(2, min(calc(50% - 1rem), 250px));
+  .hero {
+    position: relative;
+    text-align: center;
+    color: white;
   }
-}
 
-@media (min-width: 1050px) {
-  .steps {
-    grid-template-columns: repeat(4, min(calc(25% - 1.5rem), 250px));
+  .hero .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 4px rgba(0,0,0,.6);
+    background-color: rgba(40, 38, 38, 0.44);
+    padding: 32px;
+    border-radius: 10px;
   }
-}
-
-.step {
-  background: var(--white);
-  border: 1px solid var(--lightBorder);
-  border-radius: var(--card-radius);
-  display: flex;
-  flex-direction: column;
-  font-size: 0.75rem;
-  padding: 1rem 1.5rem 1.5rem;
-  text-align: left;
-  box-shadow: 0 2px 4px rgb(14 30 37 / 12%);
-}
-
-.stepHeading {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-}
 
 
+  .hero img {
+    width: 100%;
+    height: 418px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  
+  .works h2 {
+    text-align: center;
+  }
+
+  .works .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .works .container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 </style>
 
 <Layout
-  title="Netlify Feature Tour"
-  description="This is a small site to show the most powerful features of Netlify quickly!"
   home
 >
-  <main class="steps">
-    <section class="step">
-      <h2 class="stepHeading">Deploy Previews</h2>
-      <p>
-        Every pull request is automatically built in an
-        identical-to-production environment for
-        <strong>painless QA, feedback, and review.</strong>
-      </p>
-      <a href="/deploy-previews" class="button">
-        Learn more <span class="sr-only">about Deploy Previews</span>
-      </a>
+  <main>
+    <section class="hero">
+      <img src="/images/banner1.jpg">
+      <div class="centered">
+        <h1>Nodoka Kon</h1>
+        <p>
+          UI/UX Designer based in Tokyo
+        </p>
+        <a href="/about" class="button">
+          About
+        </a>
+      </div>
     </section>
-
-    <section class="step">
-      <h2 class="stepHeading">Instant Rollbacks</h2>
-      <p>
-        Confidently ship to production with the knowledge that it’s a
-        one-click operation to roll back to a previous version of the site.
-        <strong>Instant disaster recovery!</strong>
-      </p>
-      <a href="/instant-rollbacks" class="button">
-        Learn more
-        <span class="sr-only">about Instant Rollbacks</span>
-      </a>
-    </section>
-
-    <section class="step">
-      <h2 class="stepHeading">Netlify Functions</h2>
-      <p>
-        <strong>Serverless functions are superpowers for web developers!</strong>
-        Securely handle server-like requirements at any scale with no
-        provisioning, scaling, or ops overhead.
-      </p>
-      <a href="/functions" class="button">
-      Learn more
-      <span class="sr-only">about Netlify Functions</span>
-      </a>
-    </section>
-
-    <section class="step">
-      <h2 class="stepHeading">Netlify Forms</h2>
-      <p>
-        Handle user input with a single line of code. Netlify Forms allow
-        any HTML form to
-        <strong>
-            accept submissions, send notification emails, and trigger custom events.
-        </strong>
-      </p>
-      <a href="/netlify-forms" class="button">
-        Learn more <span class="sr-only">about Netlify Forms</span>
-      </a>
+    <section class="works">
+      <h2>Works</h2>
+      <div class="container">
+        {
+          projects.map(project => <div class="work-container">
+            <div class="image">
+              <img src={project.image} alt="project main image"/>
+            </div>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <a href={project.link} class="button">
+                    見る
+                </a>
+              </div>
+          </div>)
+        }
+      </div>
     </section>
   </main>
 </Layout>

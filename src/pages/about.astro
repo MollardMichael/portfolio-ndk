@@ -1,0 +1,129 @@
+---
+import Layout from "../components/layout.astro";
+---
+
+<style>
+  .hero {
+    position: relative;
+    color: #323232;
+
+    margin-bottom: 2rem;
+  }
+
+  .hero .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+    border-radius: 10px;
+    width: 70%;
+
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 2rem;
+  }
+
+  .hero .centered .face { 
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .hero .centered h1 {
+    margin: 0;
+  }
+
+  .hero .centered h1 span, .hero .centered p span {
+    background-color: white;
+  }
+
+
+  .hero .background-image {
+    width: 100%;
+    height: 418px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .cv {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+      <img src="/images/banner-yellow.avif" class="background-image">
+      <div class="centered">
+        <img src="/images/nodoka.jpg" alt="picture of nodoka" class="face"/>
+      <div>
+        <h1><span>昆　和（Nodoka KON）</span></h1>
+        <p>
+          <span>岩手県出身。東京在住。</span><br>
+          <span>大学卒業後にフランスで旅行会社の商品企画を経験後、ウェブメディアのディレクターに転身。そこでUI/UXの面白さと重要性を知り、独学で勉強。その後は社内でUI/UX改善業務に携わるようになる。</span><br>
+          <span>好きなものは、音楽、美術、犬。</span>
+        </p>
+      </div>
+      </div>
+    </section>
+    <section class="cv">
+      <div>
+        <h4>職歴</h4>
+        <div>
+          <div>2020 - 現在</div>
+          <div><strong>セレクトラ・ジャパン株式会社</strong></div>
+          <div>職務：ウェブディレクター兼UI/UXデザイナー</div>
+          <div>東京都渋谷区</div>
+        </div>
+        <br>
+        <div>
+          <div>2019-2020</div>
+          <div><strong>JTB Europe（JTBパリ支店）</strong></div>
+          <div>商品企画部</div>
+          <div>フランス・パリ市内</div>
+        </div>
+      </div>
+      <div>
+        <h4>​学歴</h4>
+        <div>
+          <div>2015-2019</div>
+          <div><strong>東北大学</strong></div>
+          <div>人文社会学科</div>
+          <div>美学・西洋美術史専攻</div>
+          <div>​宮城県仙台市</div>
+        </div>
+        <br>
+        <div>
+          <div>2017-2018 交換留学</div>
+          <div><strong>Université Lumière Lyon 2</strong>（リヨン第2大学）</div>
+          <div>現代視覚芸術、西洋美術史 </div>
+          <div>​フランス・リヨン市</div>
+        </div>
+      </div>
+      <div>
+        <h4>​使えるツール・スキル</h4>
+        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/UZTSM7RV8XCK">UX/UI design</a>
+        <div>Adobe XD</div>
+        <div>Figma</div>
+        <div>Adobe Photoshop</div>
+        <div>Adobe Illustrator</div>
+        <div>Google Analytics</div>
+      </div>
+      <div>
+        <h4>読み書きできる​言語</h4>
+        <div>日本語 - 母語</div>
+        <div>英語 - ビジネスレベル</div>
+        <div>フランス語 - ビジネスレベル</div>
+      </div>
+      
+
+
+    </section>
+  </main>
+</Layout>

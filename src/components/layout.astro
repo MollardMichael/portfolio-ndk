@@ -1,5 +1,5 @@
 ---
-const { title, description, home = false } = Astro.props;
+const { title, home = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,13 +17,12 @@ const { title, description, home = false } = Astro.props;
 
   <meta name="msapplication-TileColor" content="#5cebdf" />
   <meta name="theme-color" content="#ffffff" />
-  <title>{title}</title>
+  <title>Nodoka's portfolio</title>
 
   <link rel="stylesheet" href="/global.css">
   <style is:global>
 
     :root {
-    
       --heading: var(--neutral-dark-900);
       --text: var(--neutral-dark-900);
       --text-muted: var(--neutral-dark-600);
@@ -60,7 +59,7 @@ const { title, description, home = false } = Astro.props;
       flex-direction: column;
       justify-content: center;
       min-height: 100vh;
-      padding: 5rem 0 4rem;
+      padding: 1rem 0 1rem;
     }
 
     h1, h2, h3 {
@@ -74,18 +73,10 @@ const { title, description, home = false } = Astro.props;
       text-decoration-color: var(--text);
       font-weight: 600;
     }
+
     a:hover,
     a:focus {
       text-decoration-color: var(--highlight);
-    }
-
-    main {
-      background: var(--light);
-      margin-bottom: 2rem;
-      margin-top: 3rem;
-      padding: 2rem max(5vw, 50vw - 60ch / 2);
-      width: 100vw;
-      border-style: none;
     }
 
     .sr-only:not(:focus):not(:active) {
@@ -128,88 +119,60 @@ const { title, description, home = false } = Astro.props;
       width: min(90vw, 900px);
     }
 
-    .heading {
-      color: var(--heading);
-      font-size: 2.5rem;
-      margin: 0;
-      text-align: center;
-    }
-
     .footer {
       color: var(--text-muted);
       font-size: 0.75rem;
       margin-top: 4rem;
     }
 
-    .footer a {
-      color: inherit;
-      text-decoration: none;
+    .footer .copyright {
+      padding: 16px 0px;
     }
 
-    .footer a:focus,
-    .footer a:hover {
-      text-decoration: underline;
+    .footer .logo {
+      width: 80px;
+      height: 80px;
     }
 
-    .footer ul {
-      display: flex;
-      flex-wrap: wrap;
+    .header {
+      z-index: 1;
+      background-color: white;
+      top: 0;
+      position: sticky;
+      display: flex; 
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      list-style-type: none;
+      padding: 20px 60px;
     }
 
-    .footer li {
-      margin: 0 1em;
-    }
-
-    .heart {
-      display: inline-block;
-      vertical-align: top;
-      width: 1.1rem;
-    }
-
-    .heart img {
-      display: block;
-      width: 100%;
+    .header .logo {
+      width: 60px;
+      height: 60px;
     }
   </style>
 </head>
 <body>
-  <header class="container">
-    <h1 class="heading">{title}</h1>
-
-    <p class="description">{description}</p>
-
-    {home !== true && (
-      <p>
-        <a href="/">&larr; back to home</a>
-      </p>
-    )}
+  <header class="header">
+    <img
+        class="logo"
+        src="/images/nodoka.png"
+        alt="a logo with the name nodoka written in it"
+      />
+      <nav>
+        <a href="/">Works</a>
+        <a href="/about">About</a>
+      </nav>
   </header>
 
   <slot />
 
   <footer class="footer">
-    <nav>
-      <ul>
-        <li>
-          <a class="footer-link" href="https://www.netlify.com/trust-center/">Trust Center</a>
-        </li>
-        <li>
-          <a class="footer-link" href="https://www.netlify.com/privacy/">Privacy</a>
-        </li>
-        <li>
-          <a class="footer-link" href="https://www.netlify.com/security/">Security</a>
-        </li>
-        <li>
-          <a class="footer-link" href="https://www.netlify.com/gdpr-ccpa/">GDPR/CCPA</a>
-        </li>
-        <li>
-          <a class="footer-link" href="mailto:fraud@netlify.com?subject=Abuse%20report&body=Please%20include%20the%20site%20URL%20and%20reason%20for%20your%20report%2C%20and%20we%20will%20reply%20promptly." target="_blank" rel="noopener noreferrer">Abuse</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="copyright">©2024 by Nodoka Kon</div>
+    <img
+        class="logo"
+        src="/images/nodoka.png"
+        alt="a logo with the name nodoka written in it"
+      />
   </footer>
 
 </body>
