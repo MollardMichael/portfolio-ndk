@@ -1,5 +1,6 @@
 ---
-const { title, home = false } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +11,9 @@ const { title, home = false } = Astro.props;
   <link rel="preload" href="/fonts/MulishVar-subset.woff2" as="font" type="font/woff2" crossorigin>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="/favicon.png" sizes="256x256">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest" />
 
@@ -149,6 +151,21 @@ const { title, home = false } = Astro.props;
       width: 60px;
       height: 60px;
     }
+
+    .header a:hover,
+    .header a:focus {
+      text-decoration-color: unset;
+    }
+
+    .header nav a {
+      padding: 0 6px;
+    }
+
+    .header nav .active {
+      pointer-events: none;
+      color: var(--primary-darker);
+      text-decoration-color: var(--primary-darker);
+    }
   </style>
 </head>
 <body>
@@ -159,8 +176,8 @@ const { title, home = false } = Astro.props;
         alt="a logo with the name nodoka written in it"
       />
       <nav>
-        <a href="/">Works</a>
-        <a href="/about">About</a>
+        <a class={currentPath === "" ? "active" : ""} href="/">Works</a>
+        <a class={currentPath.startsWith("about") ? "active" : ""} href="/about">About</a>
       </nav>
   </header>
 
