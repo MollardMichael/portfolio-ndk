@@ -1,0 +1,95 @@
+---
+---
+
+<main>
+    <div id="3d-container"></div>
+</main>
+
+<script>
+    import { Scene, PerspectiveCamera, WebGLRenderer, Color, Box3, Vector3, AmbientLight, DirectionalLight, LinearToneMapping } from "three"
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const state = {
+        clearColor: 0xcccccc,
+        ambientColor: "#FFFFFF",
+        ambientIntensity: 0.3,
+        directColor: "#FFFFFF",
+        directIntensity: 0.8 * Math.PI,
+        exposure: 0,
+        backgroundColo: '#191919'
+    }
+
+    // Set up the scene, camera, and renderer
+    const scene = new Scene();
+    const camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight);
+    const renderer = new WebGLRenderer();
+    renderer.setClearColor(state.clearColor);
+    const backgroundColor = new Color(state.backgroundColo);
+    scene.background = backgroundColor;
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.getElementById('3d-container').appendChild(renderer.domElement);
+    
+    
+    const controls = new OrbitControls( camera, renderer.domElement );
+    controls.screenSpacePanning = true;
+    
+    // Load the 3D model
+    const loader = new GLTFLoader();
+    loader.load(
+        '/models/reinishiyama.glb', 
+        (gltf) => {
+            const model = gltf.scene || gltf.scenes[0];
+            model.updateMatrixWorld()
+            const box = new Box3().setFromObject(model);
+            const size = box.getSize(new Vector3()).length();
+            const center = box.getCenter(new Vector3());
+            controls.reset();
+            model.position.x -= center.x;
+		    model.position.y -= center.y;
+		    model.position.z -= center.z;
+            controls.maxDistance = size * 10;
+
+            camera.near = size / 100;
+            camera.far = size * 100;
+            camera.updateProjectionMatrix();
+
+            camera.position.copy(center);
+			camera.position.x += size / 2.0;
+			camera.position.y += size / 5.0;
+			camera.position.z += size / 2.0;
+			camera.lookAt(center);
+
+            const light1 = new AmbientLight(state.ambientColor, state.ambientIntensity);
+            light1.name = 'ambient_light';
+            camera.add(light1);
+
+            const light2 = new DirectionalLight(state.directColor, state.directIntensity);
+            light2.position.set(0.5, 0, 0.866); // ~60º
+            light2.name = 'main_light';
+            camera.add(light2);
+
+            renderer.toneMapping = LinearToneMapping
+            renderer.toneMappingExposure = Math.pow(2, state.exposure)
+
+            scene.add(model);
+        }, 
+        function ( xhr ) {
+            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        },
+        // called when loading has errors
+        function ( error ) {
+            console.log( 'An error happened' );
+        }
+    );
+    
+    
+    // Render the scene
+    const animate = () => {
+      requestAnimationFrame(animate);
+      controls.update()
+      renderer.render(scene, camera);
+    };
+    animate();
+  </script>

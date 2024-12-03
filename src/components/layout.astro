@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import myImage from "../assets/nodoka.png"; // Image is 1600x900
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
 ---
@@ -61,7 +64,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
       flex-direction: column;
       justify-content: center;
       min-height: 100vh;
-      padding: 1rem 0 1rem;
+      padding: 0 0 1rem;
     }
 
     h1, h2, h3 {
@@ -94,7 +97,6 @@ const currentPath = pathname.slice(1); // remove the first "/"
     .button,
     a.button {
       background: var(--primary);
-      border-radius: 4px;
       color: var(--white);
       display: inline-block;
       font-weight: 800;
@@ -127,13 +129,13 @@ const currentPath = pathname.slice(1); // remove the first "/"
       margin-top: 4rem;
     }
 
-    .footer .copyright {
-      padding: 16px 0px;
+    .footer .logo {
+      height: 80px;
+      width: 80px;
     }
 
-    .footer .logo {
-      width: 80px;
-      height: 80px;
+    .footer .copyright {
+      padding: 16px 0px;
     }
 
     .header {
@@ -147,34 +149,24 @@ const currentPath = pathname.slice(1); // remove the first "/"
       padding: 20px 60px;
     }
 
-    .header .logo {
-      width: 60px;
-      height: 60px;
-    }
-
-    .header a:hover,
-    .header a:focus {
-      text-decoration-color: unset;
-    }
-
     .header nav a {
       padding: 0 6px;
     }
 
+    .header .logo {
+      height: 60px;
+      width: 60px;
+    }
+
     .header nav .active {
       pointer-events: none;
-      color: var(--primary-darker);
-      text-decoration-color: var(--primary-darker);
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <img
-        class="logo"
-        src="/images/nodoka.png"
-        alt="a logo with the name nodoka written in it"
-      />
+    <Image class="logo" src={myImage} alt="A logo with the name nodoka written in it" width="120" height="120" />
       <nav>
         <a class={currentPath === "" ? "active" : ""} href="/">Works</a>
         <a class={currentPath.startsWith("about") ? "active" : ""} href="/about">About</a>
@@ -185,11 +177,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
   <footer class="footer">
     <div class="copyright">©2024 by Nodoka Kon</div>
-    <img
-        class="logo"
-        src="/images/nodoka.png"
-        alt="a logo with the name nodoka written in it"
-      />
+    <Image class="logo" src={myImage} alt="A logo with the name nodoka written in it" width="160" height="160" />
   </footer>
 
 </body>

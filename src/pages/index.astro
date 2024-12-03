@@ -6,13 +6,17 @@ const projects = [
 		title: "料金比較のセレクトラ",
 		image: "/images/selectra.png",
 		description: "料金比較サイト「セレクトラ」のUI/UX改善",
-		link: "https://docs.google.com/presentation/d/e/2PACX-1vT33otSCt5AzZBM_MrFUYPOizabb0WLMtgY8ksN2ELSJW93j0Xpnl3WPIm-Ge1lwjFuBLC999h5NMEu/pub?start=false&loop=false&delayms=3000",
+		link: "/pdf/selectra.pdf",
+		slideLink:
+			"https://docs.google.com/presentation/d/e/2PACX-1vT33otSCt5AzZBM_MrFUYPOizabb0WLMtgY8ksN2ELSJW93j0Xpnl3WPIm-Ge1lwjFuBLC999h5NMEu/pub?start=false&loop=false&delayms=3000",
 	},
 	{
 		title: "Artfull",
 		image: "/images/art.png",
 		description: "【架空】アートギャラリー向けスマホアプリ",
-		link: "https://docs.google.com/presentation/d/e/2PACX-1vRMIEGfJQ1kB78RkgIkb4CMvSkwrH4vOvHc_ZGb0CITCZrb6j-fJbaQ5Gfbrbcw2Ttw6TRkqWcmo_b7/pub?start=false&loop=false&delayms=3000",
+		link: "/pdf/artful.pdf",
+		slideLink:
+			"https://docs.google.com/presentation/d/e/2PACX-1vRMIEGfJQ1kB78RkgIkb4CMvSkwrH4vOvHc_ZGb0CITCZrb6j-fJbaQ5Gfbrbcw2Ttw6TRkqWcmo_b7/pub?start=false&loop=false&delayms=3000",
 	},
 	{
 		title: "Chrome typeの習作",
@@ -27,7 +31,7 @@ const projects = [
   .hero {
     position: relative;
     text-align: center;
-    color: white;
+    color: #323232;
   }
 
   .hero .centered {
@@ -35,10 +39,12 @@ const projects = [
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 1px 4px rgba(0,0,0,.6);
-    background-color: rgba(40, 38, 38, 0.44);
     padding: 32px;
     border-radius: 10px;
+  }
+
+  .hero .centered h1 span, .hero .centered p span {
+    background-color: white;
   }
 
 
@@ -61,7 +67,7 @@ const projects = [
 
   .works .container img {
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
   }
 
@@ -79,13 +85,10 @@ const projects = [
     <section class="hero">
       <img src="/images/banner1.jpg">
       <div class="centered">
-        <h1>Nodoka Kon</h1>
+        <h1><span>Nodoka Kon</span></h1>
         <p>
-          UI/UX Designer based in Tokyo
+          <span>UI/UX Designer based in Tokyo</span>
         </p>
-        <a href="/about" class="button">
-          About
-        </a>
       </div>
     </section>
     <section class="works">
