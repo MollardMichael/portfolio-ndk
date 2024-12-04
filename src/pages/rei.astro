@@ -1,14 +1,30 @@
 ---
 ---
-
+<link rel="stylesheet" href="/global.css">
 <style>
+    :root {
+        --gray: var(--neutral-light-600)
+    }
+
     body {
         margin: 0;
+    }
+
+    .loader {
+        padding: 20px;
+        border-radius: 10px;
+        background-color: var(--gray);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
     }
 </style>
 
 <main>
     <div id="3d-container"></div>
+    <div class="loader">Loading...</div>
 </main>
 
 <script>
@@ -23,7 +39,7 @@
         directColor: "#FFFFFF",
         directIntensity: 0.8 * Math.PI,
         exposure: 0,
-        backgroundColo: '#191919'
+        backgroundColo: '#696969'
     }
 
     // Set up the scene, camera, and renderer
@@ -57,7 +73,11 @@
             setContent(model, camera, controls, scene, renderer)
             controls.reset();
         }, 
-        ( _xhr ) => {},
+        ( xhr ) => {
+            if (xhr.loaded === xhr.total) {
+                document.getElementsByClassName("loader")[0].remove()
+            }
+        },
         // called when loading has errors
         ( error ) => {
             console.error( 'An error happened', error );
