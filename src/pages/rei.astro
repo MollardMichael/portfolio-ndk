@@ -1,140 +1,160 @@
 ---
 ---
-<link rel="stylesheet" href="/global.css">
-<style>
-    :root {
-        --gray: var(--neutral-light-600)
-    }
-
-    body {
-        margin: 0;
-    }
-
-    .loader {
-        padding: 20px;
-        border-radius: 10px;
-        background-color: var(--gray);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-    }
-</style>
-
-<main>
-    <div id="3d-container"></div>
-    <div class="loader">Loading...</div>
-</main>
-
-<script>
-    import { Scene, PerspectiveCamera, WebGLRenderer, Color, Box3, Vector3, AmbientLight, DirectionalLight, LinearToneMapping, Group, Object3DEventMap, Camera, Object3D } from "three"
-    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-    const state = {
-        clearColor: 0xcccccc,
-        ambientColor: "#FFFFFF",
-        ambientIntensity: 0.3,
-        directColor: "#FFFFFF",
-        directIntensity: 0.8 * Math.PI,
-        exposure: 0,
-        backgroundColo: '#696969'
-    }
-
-    // Set up the scene, camera, and renderer
-    const scene = new Scene();
-    const camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight);
-    scene.add(camera)
-    const renderer = new WebGLRenderer();
-    renderer.setClearColor(state.clearColor);
-    const backgroundColor = new Color(state.backgroundColo);
-    scene.background = backgroundColor;
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    document.getElementById('3d-container').appendChild(renderer.domElement);
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preload" href="/fonts/PacaembuVar-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/MulishVar-subset.woff2" as="font" type="font/woff2" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    
-    const controls = new OrbitControls( camera, renderer.domElement );
-    controls.screenSpacePanning = true;
-    
-    // Load the 3D model
-    const loader = new GLTFLoader();
-    loader.load(
-        '/models/reinishiyama.glb', 
-        (gltf) => {
-            const model = gltf.scene || gltf.scenes[0];
-            console.log(model.children)
-            const childToRemove = [model.children[0], model.children[1]]
-            for (const child of childToRemove) {
-                model.remove(child)
-            }
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon.ico" sizes="256x256">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest" />
 
-            setContent(model, camera, controls, scene, renderer)
-            controls.reset();
-        }, 
-        ( xhr ) => {
-            if (xhr.loaded === xhr.total) {
-                document.getElementsByClassName("loader")[0].remove()
-            }
-        },
-        // called when loading has errors
-        ( error ) => {
-            console.error( 'An error happened', error );
+    <meta name="msapplication-TileColor" content="#5cebdf" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Nodoka's portfolio</title>
+
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/global.css">
+    <style>
+        :root {
+            --gray: var(--neutral-light-600)
         }
-    );
-    
-    
-    // Render the scene
-    const animate = () => {
-      requestAnimationFrame(animate);
-      controls.update()
-      renderer.render(scene, camera);
-    };
-    animate();
 
-    const setContent = (model: Group, camera: PerspectiveCamera, controls: OrbitControls, scene: Scene, renderer: WebGLRenderer) => {
-        model.updateMatrixWorld()
-        const box = new Box3().setFromObject(model);
-        const size = box.getSize(new Vector3()).length();
+        body {
+            margin: 0;
+        }
+
+        .loader {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--gray);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+    </style>
+    <script>
+        import { Scene, PerspectiveCamera, WebGLRenderer, Color, Box3, Vector3, AmbientLight, DirectionalLight, LinearToneMapping, Group, Object3DEventMap, Camera, Object3D } from "three"
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const state = {
+            clearColor: 0xcccccc,
+            ambientColor: "#FFFFFF",
+            ambientIntensity: 0.3,
+            directColor: "#FFFFFF",
+            directIntensity: 0.8 * Math.PI,
+            exposure: 0,
+            backgroundColo: '#696969'
+        }
+
+        // Set up the scene, camera, and renderer
+        const scene = new Scene();
+        const camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight);
+        scene.add(camera)
+        const renderer = new WebGLRenderer();
+        renderer.setClearColor(state.clearColor);
+        const backgroundColor = new Color(state.backgroundColo);
+        scene.background = backgroundColor;
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        document.getElementById('3d-container').appendChild(renderer.domElement);
         
-        const position = new Vector3(4, 8, 20)
-        const center = new Vector3(5, 6, -1);
+        
+        const controls = new OrbitControls( camera, renderer.domElement );
+        controls.screenSpacePanning = true;
+        
+        // Load the 3D model
+        const loader = new GLTFLoader();
+        loader.load(
+            '/models/reinishiyama.glb', 
+            (gltf) => {
+                document.getElementsByClassName("loader")[0].remove()
+                const model = gltf.scene || gltf.scenes[0];
+                const childToRemove = [model.children[0], model.children[1]]
+                for (const child of childToRemove) {
+                    model.remove(child)
+                }
+
+                setContent(model, camera, controls, scene, renderer)
+                controls.reset();
+            }, 
+            ( _xhr ) => {},
+            // called when loading has errors
+            ( error ) => {
+                console.error( 'An error happened', error );
+            }
+        );
+        
+        
+        // Render the scene
+        const animate = () => {
+            requestAnimationFrame(animate);
+            controls.update()
+            renderer.render(scene, camera);
+        };
+        animate();
+
+        const setContent = (model: Group, camera: PerspectiveCamera, controls: OrbitControls, scene: Scene, renderer: WebGLRenderer) => {
+            model.updateMatrixWorld()
+            const box = new Box3().setFromObject(model);
+            const size = box.getSize(new Vector3()).length();
+            
+            const position = new Vector3(4, 8, 20)
+            const center = new Vector3(5, 6, -1);
 
 
-        controls.maxDistance = size * 10;
+            controls.maxDistance = size * 10;
 
-        camera.near = size / 100;
-        camera.far = size * 100;
-        camera.updateProjectionMatrix();
+            camera.near = size / 100;
+            camera.far = size * 100;
+            camera.updateProjectionMatrix();
 
-        camera.position.copy(position);
-        controls.target = center
-        camera.lookAt(center);
+            camera.position.copy(position);
+            controls.target = center
+            camera.lookAt(center);
 
-        controls.enabled = true
-        controls.saveState()
+            controls.enabled = true
+            controls.saveState()
 
-        scene.add(model);
+            scene.add(model);
 
-        const light1 = new AmbientLight(state.ambientColor, state.ambientIntensity);
-        light1.name = 'ambient_light';
-        camera.add(light1);
+            const light1 = new AmbientLight(state.ambientColor, state.ambientIntensity);
+            light1.name = 'ambient_light';
+            camera.add(light1);
 
-        const light2 = new DirectionalLight(state.directColor, state.directIntensity);
-        light2.position.set(0.5, 0, 0.866); // ~60º
-        light2.name = 'main_light';
-        camera.add(light2);
+            const light2 = new DirectionalLight(state.directColor, state.directIntensity);
+            light2.position.set(0.5, 0, 0.866); // ~60º
+            light2.name = 'main_light';
+            camera.add(light2);
 
-        renderer.toneMapping = LinearToneMapping
-        renderer.toneMappingExposure = Math.pow(2, state.exposure)
+            renderer.toneMapping = LinearToneMapping
+            renderer.toneMappingExposure = Math.pow(2, state.exposure)
 
-        printGraph(model)
-    }
+            printGraph(model)
+        }
 
-    const printGraph = (model: Group | Object3D) => {
-        console.group(' <' + model.type + '> ' + model.name);
-		model.children.forEach((child) => printGraph(child));
-		console.groupEnd();
-    }
-  </script>
+        const printGraph = (model: Group | Object3D) => {
+            console.group(' <' + model.type + '> ' + model.name);
+            model.children.forEach((child) => printGraph(child));
+            console.groupEnd();
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <div id="3d-container"></div>
+        <div class="loader">Loading...</div>
+    </main>
+
+    
+  </body>
+</html>
