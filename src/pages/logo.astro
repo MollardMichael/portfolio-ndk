@@ -4,6 +4,9 @@ import { Image } from "astro:assets";
 import reiPc from "../assets/rei-pc.webp";
 import reiGreen from "../assets/rei-green.png";
 import reiSticker from "../assets/sticker-outcome.jpg";
+import { projects } from "../components/projects";
+
+const logo = projects.find((project) => project.id === "logo");
 ---
 
 <style>
@@ -34,12 +37,12 @@ import reiSticker from "../assets/sticker-outcome.jpg";
   <main>
     <section class="hero">
       <div>
-        <h1>【趣味】Chrome typeの習作</h1>
+        <h1>{logo.title}</h1>
         <p>
-          使用ツール：Inkscape・Blender <br>会社の先輩の名前でChrome Type風のロゴタイプを作成。ステッカーにして誕生日にプレゼントした。 
+          使用ツール：Inkscape・Blender <br>会社の先輩の名前でロゴタイプを作成。ステッカーにして誕生日にプレゼントした。 
         </p>
         <div class="content">
-          <a href="/rei3d" class="button">
+          <a href="/logo3d" class="button">
             3Dで見る
           </a>
           <Image src={reiGreen} alt="Picture of 3D Model"  width={800}/>

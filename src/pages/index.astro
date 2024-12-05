@@ -1,30 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../components/layout.astro";
-
-const projects = [
-	{
-		title: "料金比較のセレクトラ",
-		image: "/images/selectra.png",
-		description: "料金比較サイト「セレクトラ」のUI/UX改善",
-		link: "/pdf/selectra.pdf",
-		slideLink:
-			"https://docs.google.com/presentation/d/e/2PACX-1vT33otSCt5AzZBM_MrFUYPOizabb0WLMtgY8ksN2ELSJW93j0Xpnl3WPIm-Ge1lwjFuBLC999h5NMEu/pub?start=false&loop=false&delayms=3000",
-	},
-	{
-		title: "Artfull",
-		image: "/images/art.png",
-		description: "【架空】アートギャラリー向けスマホアプリ",
-		link: "/pdf/artful.pdf",
-		slideLink:
-			"https://docs.google.com/presentation/d/e/2PACX-1vRMIEGfJQ1kB78RkgIkb4CMvSkwrH4vOvHc_ZGb0CITCZrb6j-fJbaQ5Gfbrbcw2Ttw6TRkqWcmo_b7/pub?start=false&loop=false&delayms=3000",
-	},
-	{
-		title: "【趣味】Chrome typeの習作",
-		image: "/images/rei-dreamy.png",
-		description: "Blenderで3Dロゴタイプを作成",
-		link: "/rei",
-	},
-];
+import { projects } from "../components/projects";
 ---
 
 <style>
@@ -39,7 +16,6 @@ const projects = [
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 32px;
     border-radius: 10px;
   }
 
@@ -85,10 +61,7 @@ const projects = [
     <section class="hero">
       <img src="/images/banner1.jpg">
       <div class="centered">
-        <h1><span>Nodoka Kon</span></h1>
-        <p>
-          <span>UI/UX Designer based in Tokyo</span>
-        </p>
+        <h1><span>昆　和<br>ポートフォリオ</span></h1>
       </div>
     </section>
     <section class="works">
@@ -97,7 +70,7 @@ const projects = [
         {
           projects.map(project => <div class="work-container">
             <div class="image">
-              <img src={project.image} alt="project main image"/>
+              <Image src={project.image} alt="project main image" height={600}/>
             </div>
               <div>
                 <h3>{project.title}</h3>
