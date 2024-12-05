@@ -73,15 +73,31 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     a:link,
     a:visited {
+      position: relative;
       color: var(--text);
-      text-decoration: underline;
-      text-decoration-color: var(--text);
+      text-decoration: none;
       font-weight: 600;
+    }
+
+    a:before {
+      transition: all 0.2s ease-in-out;
+      content: '';
+      background: var(--highlight);
+      display: block;
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 3px;
     }
 
     a:hover,
     a:focus {
       text-decoration-color: var(--highlight);
+    }
+
+    a:hover::before {
+      width: 100%;
     }
 
     .sr-only:not(:focus):not(:active) {
@@ -106,6 +122,10 @@ const currentPath = pathname.slice(1); // remove the first "/"
       transition-duration: .2s;
       text-decoration: none;
       margin-top: auto;
+    }
+
+    a.button::before {
+      display: none;
     }
 
     a.button:hover,
@@ -160,7 +180,11 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
     .header nav .active {
       pointer-events: none;
-      text-decoration: none;
+    }
+
+    .header nav .active:before {
+      width: 100%;
+      background: var(--text);
     }
   </style>
 </head>
