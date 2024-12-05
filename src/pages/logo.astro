@@ -3,6 +3,7 @@ import Layout from "../components/layout.astro";
 import { Image } from "astro:assets";
 import reiPc from "../assets/rei-pc.webp";
 import reiGreen from "../assets/rei-green.png";
+import reiFlat from "../assets/rei-flat.png";
 import reiSticker from "../assets/sticker-outcome.jpg";
 import { projects } from "../components/projects";
 
@@ -46,6 +47,7 @@ const logo = projects.find((project) => project.id === "logo");
             3Dで見る
           </a>
           <Image src={reiGreen} alt="Picture of 3D Model"  width={800}/>
+          <Image src={reiFlat} alt="Rei written on a digital picture"  width={800}/>
           <Image src={reiSticker} alt="3D Model on stickers"  width={800}/>
           <Image src={reiPc} alt="Picture of 3D Model printed on PC"  width={800}/>
         </div>
