@@ -22,3 +22,8 @@ _old/
 # Local Netlify folder
 .netlify
 .astro
+
+
+# Local storybook
+storybook-static
+*storybook.log
