@@ -236,3 +236,7 @@ input[type="range"]::-webkit-slider-thumb {
 		transform: none !important;
 	}
 }
+
+:focus-visible {
+	outline: 1px solid var(--focus-ring-color);
+}

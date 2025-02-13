@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { NdkButtonLink } from "./ndk-button";
 
 const meta = {
-	title: "Navigation/NdkButtonLink",
+	title: "Atoms/NdkButtonLink",
 	parameters: {
 		layout: "centered",
 	},
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
 	args: {
-		children: "Click me",
+		children: "見る",
 		href: "https://nodoka-kon.me",
 		mode: "primary",
 	},
@@ -24,7 +24,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
 	args: {
-		children: "Click me",
+		children: "見る",
 		href: "https://nodoka-kon.me",
 		mode: "secondary",
 	},

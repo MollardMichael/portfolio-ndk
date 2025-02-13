@@ -6,10 +6,11 @@ import React, {
 } from "react";
 import { colors } from "../../constants/design";
 
+import "./ndk-button.css";
+
 export type ButtonLinkProps = {
 	ariaControls?: string;
 	ariaExpanded?: boolean;
-	grow?: boolean;
 	mode?: "primary" | "secondary";
 	style?: CSSProperties;
 	href?: string;
@@ -32,15 +33,12 @@ export const NdkButtonLink = memo(
 				ariaExpanded,
 				ariaLabel,
 				children,
-				grow = false,
 				mode = "primary",
 				style,
 				href,
 			},
 			forwardedRef,
 		) => {
-			const isPrimary = mode === "primary";
-
 			return (
 				<a
 					href={href}
@@ -49,22 +47,9 @@ export const NdkButtonLink = memo(
 					aria-label={ariaLabel}
 					ref={forwardedRef}
 					style={style}
+					className={`button ${mode}`}
 				>
-					{typeof children === "string" || typeof children === "number" ? (
-						<div style={{ color: colors.gray[900], userSelect: "none" }}>
-							{children}
-						</div>
-					) : (
-						<div
-							style={{
-								alignItems: "center",
-								justifyContent: "center",
-								flexDirection: "row",
-							}}
-						>
-							{children}
-						</div>
-					)}
+					{children}
 				</a>
 			);
 		},
