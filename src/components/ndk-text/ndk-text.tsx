@@ -11,19 +11,20 @@ import "./ndk-text.css";
 export type TextProps = {
 	mode?: "h1" | "h2" | "h3" | "body" | "small";
 	inline?: boolean;
+	className?: string;
 	style?: CSSProperties;
 	children: ReactNode;
 };
 
 export const NdkText = memo(
 	forwardRef<HTMLHeadingElement, TextProps>(
-		({ children, mode, style, inline }, forwardedRef) => {
+		({ children, mode, style, inline, className = "" }, forwardedRef) => {
 			return match(mode)
 				.with("h1", () => (
 					<h1
 						ref={forwardedRef}
 						style={style}
-						className={inline ? "inline" : "block"}
+						className={`${inline ? "inline" : "block"} ${className}`}
 					>
 						{children}
 					</h1>
@@ -32,7 +33,7 @@ export const NdkText = memo(
 					<h2
 						ref={forwardedRef}
 						style={style}
-						className={inline ? "inline" : "block"}
+						className={`${inline ? "inline" : "block"} ${className}`}
 					>
 						{children}
 					</h2>
@@ -41,7 +42,7 @@ export const NdkText = memo(
 					<h3
 						ref={forwardedRef}
 						style={style}
-						className={inline ? "inline" : "block"}
+						className={`${inline ? "inline" : "block"} ${className}`}
 					>
 						{children}
 					</h3>
@@ -50,7 +51,7 @@ export const NdkText = memo(
 					<span
 						ref={forwardedRef}
 						style={style}
-						className={inline ? "body inline" : "body block"}
+						className={`body ${inline ? "inline" : "block"} ${className}`}
 					>
 						{children}
 					</span>
@@ -59,7 +60,7 @@ export const NdkText = memo(
 					<span
 						ref={forwardedRef}
 						style={style}
-						className={inline ? "small inline" : "small block"}
+						className={`small ${inline ? "inline" : "block"} ${className}`}
 					>
 						{children}
 					</span>

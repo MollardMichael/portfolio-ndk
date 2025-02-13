@@ -1,0 +1,12 @@
+.chip {
+	padding: var(--spacing-4) var(--spacing-8);
+	border-radius: var(--border-radius-big);
+}
+
+.chip.primary {
+	background-color: var(--color-primary-200);
+}
+
+.chip.secondary {
+	background-color: var(--color-secondary-100);
+}
