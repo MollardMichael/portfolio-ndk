@@ -22,6 +22,7 @@ export const Chip = memo(
 					ref={forwardedRef}
 					style={style}
 					mode="small"
+					inline
 					className={`chip ${mode}`}
 				>
 					{children}

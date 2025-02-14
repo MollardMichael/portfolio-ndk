@@ -19,8 +19,8 @@ export type TextProps = {
 export const NdkText = memo(
 	forwardRef<HTMLHeadingElement, TextProps>(
 		({ children, mode, style, inline, className = "" }, forwardedRef) => {
-			return match(mode)
-				.with("h1", () => (
+			return match({ mode, inline })
+				.with({ mode: "h1" }, () => (
 					<h1
 						ref={forwardedRef}
 						style={style}
@@ -29,7 +29,7 @@ export const NdkText = memo(
 						{children}
 					</h1>
 				))
-				.with("h2", () => (
+				.with({ mode: "h2" }, () => (
 					<h2
 						ref={forwardedRef}
 						style={style}
@@ -38,7 +38,7 @@ export const NdkText = memo(
 						{children}
 					</h2>
 				))
-				.with("h3", () => (
+				.with({ mode: "h3" }, () => (
 					<h3
 						ref={forwardedRef}
 						style={style}
@@ -47,23 +47,41 @@ export const NdkText = memo(
 						{children}
 					</h3>
 				))
-				.with("body", () => (
+				.with({ mode: "body", inline: true }, () => (
 					<span
 						ref={forwardedRef}
 						style={style}
-						className={`body ${inline ? "inline" : "block"} ${className}`}
+						className={`body inline ${className}`}
 					>
 						{children}
 					</span>
 				))
-				.with("small", () => (
+				.with({ mode: "body" }, () => (
+					<div
+						ref={forwardedRef}
+						style={style}
+						className={`body block ${className}`}
+					>
+						{children}
+					</div>
+				))
+				.with({ mode: "small", inline: true }, () => (
 					<span
 						ref={forwardedRef}
 						style={style}
-						className={`small ${inline ? "inline" : "block"} ${className}`}
+						className={`small inline ${className}`}
 					>
 						{children}
 					</span>
+				))
+				.with({ mode: "small" }, () => (
+					<div
+						ref={forwardedRef}
+						style={style}
+						className={`small block ${className}`}
+					>
+						{children}
+					</div>
 				))
 				.exhaustive();
 		},

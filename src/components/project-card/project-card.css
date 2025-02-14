@@ -1,0 +1,49 @@
+.project-card {
+	width: 400px;
+	height: 268px;
+
+	position: relative;
+}
+
+.project-card .chips {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+}
+
+.project-card .image {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.project-card .overlay {
+	opacity: 0%;
+	transition: opacity 200ms ease-in-out;
+
+	position: absolute;
+	top: 0;
+
+	text-decoration: none;
+	color: inherit;
+	background-color: var(--color-grayscale-100);
+	cursor: pointer;
+
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.project-card:hover .overlay {
+	opacity: 80%;
+}
+
+.project-card .project-info {
+	width: 304px;
+}
