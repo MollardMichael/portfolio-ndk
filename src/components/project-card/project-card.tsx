@@ -10,22 +10,20 @@ import { NdkText } from "../ndk-text/ndk-text";
 import { Chip } from "../chip/chip";
 
 export type ProjectCardProps = {
-	project: {
-		href: string;
-		tags: { name: ReactNode; mode: "primary" | "secondary" }[];
-		title: ReactNode;
-		description: ReactNode;
-		image: {
-			alt: string;
-			mobileSrc: string;
-			desktopSrc: string;
-		};
+	href: string;
+	tags: { name: ReactNode; mode: "primary" | "secondary" }[];
+	title: ReactNode;
+	description: ReactNode;
+	image: {
+		alt: string;
+		mobileSrc: string;
+		desktopSrc: string;
 	};
 	style?: CSSProperties;
 };
 
 export const ProjectCard = memo<ProjectCardProps>(
-	({ style, project: { image, title, description, tags, href } }) => {
+	({ style, image, title, description, tags, href }) => {
 		return (
 			<div className="project-card" style={style}>
 				<div className="chips">

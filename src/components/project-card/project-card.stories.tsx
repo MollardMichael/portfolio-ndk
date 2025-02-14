@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ProjectCard } from "./project-card";
 
 const meta = {
-	title: "Molecule/ProjectCard",
+	title: "Molecules/ProjectCard",
 	parameters: {
 		layout: "centered",
 	},
@@ -17,24 +17,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
 	args: {
-		project: {
-			href: "#",
-			tags: [
-				{ name: "primary chip", mode: "primary" },
-				{ name: "secondary chip", mode: "secondary" },
-			],
-			title: "Artful",
-			description: (
-				<>
-					<div>Description of the project</div>
-					<div>It’s the best thing since sliced bread</div>
-				</>
-			),
-			image: {
-				alt: "Descriptive image of the project",
-				desktopSrc: "/src/assets/art.png",
-				mobileSrc: "/src/assets/art.png",
-			},
+		href: "#",
+		tags: [
+			{ name: "primary chip", mode: "primary" },
+			{ name: "secondary chip", mode: "secondary" },
+		],
+		title: "Artful",
+		description: (
+			<>
+				<div>Description of the project</div>
+				<div>It’s the best thing since sliced bread</div>
+			</>
+		),
+		image: {
+			alt: "Descriptive image of the project",
+			desktopSrc: "/src/assets/art.png",
+			mobileSrc: "/src/assets/art.png",
 		},
 	},
 };
