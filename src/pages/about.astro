@@ -1,144 +1,188 @@
 ---
+import { NdkText } from "../components/atoms/ndk-text/ndk-text";
 import Layout from "../components/layout.astro";
+import { Aside } from "../components/layout/aside/aside";
 ---
 
 <style>
-  .hero {
-    position: relative;
-    color: #323232;
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
 
-    margin-bottom: 2rem;
+    padding: var(--spacing-48) var(--spacing-96); 
   }
 
-  .hero .centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    min-width: 70%;
-
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    gap: 2rem;
+  .section-title {
+    min-width: 144px;
   }
 
-  .hero .centered .face { 
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  .hero .centered h1 {
+  .list {
     margin: 0;
-  }
-
-  .hero .centered h1 span, .hero .centered p span {
-    background-color: white;
-  }
-
-
-  .hero .background-image {
-    width: 100%;
-    min-height: 418px;
-    object-fit: cover;
-    object-position: 50% 50%;
-  }
-
-  @media (width <= 768px) {
-    .hero .centered { 
-      grid-template-columns: 1fr;
-    }
-    .hero .background-image { 
-      min-height: 600px;
-    }
-  }
-
-  .cv {
-    width: 70%;
-    margin: auto;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-
-  @media (width <= 768px) {
-    .cv {
-      grid-template-rows: 1fr;
-      grid-template-columns: 1fr;
-    }
+    padding: 0px var(--spacing-20);
   }
 </style>
 
 <Layout>
   <main>
-    <section class="hero">
-      <img src="/images/banner-yellow.avif" class="background-image">
-      <div class="centered">
-        <img src="/images/nodoka.jpg" alt="picture of nodoka" class="face"/>
+    <NdkText mode="h2">Professional Experiences</NdkText>
+    <Aside>
+      <div slot="section-name" class="section-title">2020 - 現在&nbsp;&nbsp;</div>
       <div>
-        <h1><span>昆　和（Nodoka KON）</span></h1>
-        <p>
-          <span>岩手県出身。東京在住。</span><br>
-          <span>大学卒業後にフランスで旅行会社の商品企画を経験後、ウェブメディアのディレクターに転身。そこでUI/UXの面白さと重要性を知り、独学で勉強。その後は社内でUI/UX改善業務に携わるようになる。</span><br>
-          <span>好きなものは、音楽、美術、犬。</span>
-        </p>
+        <NdkText mode="h3">Selectra France / Selectra Japan</NdkText>
+        <NdkText mode="h3">コンテンツディレクター・UI/UXデザイナー</NdkText>
+        <NdkText mode="body">フランス・パリ本社（2020年～2023年12月）/ 東京（2024年1月～）</NdkText>
+        <ul class="list">
+          <li>
+            <NdkText mode="body">
+            日本版ウェブサイトのUX/UI改善
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            社内デザイン部門・エンジニア部門との連携してのウェブデザイン業務
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            自社サイトに掲載するコンテンツの企画立案
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            自社サイトに掲載する広告のコピーライティング
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            サイトパフォーマンスの効果測定（GA4, Hotjar, Zoho PageSense）
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            自社で運営する比較サイトのSEO
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            コンテンツライティング
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            広告主との広告費交渉
+            </NdkText>
+          </li>
+        </ul>
       </div>
-      </div>
-    </section>
-    <section class="cv">
+    </Aside>
+    <Aside>
+      <div slot="section-name" class="section-title">2019 - 2020</div>
       <div>
-        <h4>職歴</h4>
-        <div>
-          <div>2020 - 現在</div>
-          <div><strong>セレクトラ・ジャパン株式会社</strong></div>
-          <div>職務：ウェブディレクター兼UI/UXデザイナー</div>
-          <div>東京都渋谷区</div>
-        </div>
-        <br>
-        <div>
-          <div>2019-2020</div>
-          <div><strong>JTB Europe（JTBパリ支店）</strong></div>
-          <div>商品企画部</div>
-          <div>フランス・パリ市内</div>
-        </div>
+        <NdkText mode="h3">JTB France</NdkText>
+        <NdkText mode="h3">商品開発／デスティネーション・マネジメント</NdkText>
+        <NdkText mode="body">フランス・パリ</NdkText>
+        <ul class="list">
+          <li>
+            <NdkText mode="body">
+            日本発フランス団体向けツアーの旅程企画考案
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            日本発フランスツアーのパッケージ商品の旅程企画考案
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            自社発行パンフレットの編集・校正業務
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            現地サプライヤーとの交渉
+            </NdkText>
+          </li>
+          <li>
+            <NdkText mode="body">
+            JTB公式アプリ内フランス部分のコンテンツ開発
+            </NdkText>
+          </li>
+        </ul>
       </div>
+    </Aside>
+    <NdkText mode="h2">Education</NdkText>
+    <Aside>
+      <div slot="section-name" class="section-title">2015 - 2019</div>
       <div>
-        <h4>​学歴</h4>
-        <div>
-          <div>2015-2019</div>
-          <div><strong>東北大学</strong></div>
-          <div>人文社会学科</div>
-          <div>美学・西洋美術史専攻</div>
-          <div>​宮城県仙台市</div>
-        </div>
-        <br>
-        <div>
-          <div>2017-2018 交換留学</div>
-          <div><strong>Université Lumière Lyon 2</strong>（リヨン第2大学）</div>
-          <div>現代視覚芸術、西洋美術史 </div>
-          <div>​フランス・リヨン市</div>
-        </div>
+        <NdkText mode="h3">東北大学文学部 人文社会学科 美学西洋美術史専攻</NdkText>
+        <NdkText mode="h3">美学西洋美術史専攻</NdkText>
+        <NdkText mode="body">仙台市青葉区</NdkText>
+        <NdkText mode="body">広く芸術学や美学（美術における哲学）を学ぶ。19～20世紀のフランス絵画やグラフィックデザイン、フランスにおけるジャポニスムについて研究。卒業論文のテーマはグラフィックデザインの発展、フランス19世紀の商業芸術（ポスター広告）</NdkText>
       </div>
+    </Aside>
+    <Aside>
+      <div slot="section-name" class="section-title">2017 - 2018</div>
       <div>
-        <h4>​使えるツール・スキル</h4>
-        <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/UZTSM7RV8XCK">UX/UI design</a>
-        <div>Adobe XD</div>
-        <div>Figma</div>
-        <div>Adobe Photoshop</div>
-        <div>Adobe Illustrator</div>
-        <div>Google Analytics</div>
+        <NdkText mode="h3">リヨン第2大学 （Université Lumière Lyon 2）</NdkText>
+        <NdkText mode="h3">専攻分野：現代美術・グラフィックデザイン</NdkText>
+        <NdkText mode="body">フランス・リヨン</NdkText>
+        <NdkText mode="body">西洋美術史、現代美術、博物館学の理解を深める。専門科目での単位取得後帰国。</NdkText>
       </div>
-      <div>
-        <h4>読み書きできる​言語</h4>
-        <div>日本語 - 母語</div>
-        <div>英語 - ビジネスレベル</div>
-        <div>フランス語 - ビジネスレベル</div>
-      </div>
-      
-
-
-    </section>
+    </Aside>
+    <NdkText mode="h2">Skills</NdkText>
+    <Aside>
+      <div slot="section-name" class="section-title">言語</div>
+      <ul class="list">
+        <li>
+          <NdkText mode="body" inline>英語 (ビジネスレベル・TOEIC 895)</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body" inline>フランス語 (ビジネスレベル・CERF B2)</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body" inline>日本語 (母国語)</NdkText>
+        </li>
+      </ul>
+    </Aside>
+    <Aside>
+      <div slot="section-name" class="section-title">言語</div>
+      <ul class="list">
+        <li>
+          <NdkText mode="body">データ分析/SEO</NdkText>
+          <NdkText mode="body">Google Analytics 4・Google Search Console・Ahrefs・hotjar・Zoho Pagesense</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body">コンテンツ管理</NdkText>
+          Drupal, WordPress, Wix
+        </li>
+        <li>
+          <NdkText mode="body">データベース管理</NdkText>
+          <NdkText mode="body">MySQL</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body">その他</NdkText>
+          <NdkText mode="body">HTML5, CSS3, Google Spread Sheet</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body">UI/UXデザイン・グラフィックデザイン</NdkText>
+          <NdkText mode="body">Adobe XD / Figma / Adobe Illustrator / Adobe Photoshop 等</NdkText>
+        </li>
+      </ul>
+    </Aside>
+    <Aside>
+      <div slot="section-name" class="section-title">関連資格</div>
+      <ul class="list">
+        <li>
+          <NdkText mode="body" inline>基本情報技術者試験</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body" inline>Google UXデザイン認定資格取得</NdkText>
+        </li>
+        <li>
+          <NdkText mode="body" inline>Google Analytics 4認定資格取得</NdkText>
+        </li>
+      </ul>
+    </Aside>
   </main>
 </Layout>

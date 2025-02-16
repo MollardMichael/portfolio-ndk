@@ -1,7 +1,7 @@
 import React, { type CSSProperties, memo } from "react";
 
 import "./header.css";
-import { NdkText } from "../ndk-text/ndk-text";
+import { NdkText } from "../../atoms/ndk-text/ndk-text";
 
 export type HeaderProps = {
 	style?: CSSProperties;
@@ -15,7 +15,7 @@ export const Header = memo<HeaderProps>(({ style, mode = "black" }) => {
 				Nodoka KON
 			</NdkText>
 			<nav aria-labelledby="primary-navigation">
-				<a href="/works">
+				<a href="/">
 					<NdkText mode="h3" style={{ margin: 0 }}>
 						Works
 					</NdkText>

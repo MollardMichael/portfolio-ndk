@@ -1,7 +1,8 @@
 {
-	"compilerOptions": {
-		"moduleResolution": "node",
-		"jsx": "preserve",
-		"esModuleInterop": true
-	}
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "jsxImportSource": "react"
+  }
 }

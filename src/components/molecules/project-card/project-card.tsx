@@ -6,8 +6,8 @@ import React, {
 } from "react";
 
 import "./project-card.css";
-import { NdkText } from "../ndk-text/ndk-text";
-import { Chip } from "../chip/chip";
+import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Chip } from "../../atoms/chip/chip";
 
 export type ProjectCardProps = {
 	href: string;

@@ -1,0 +1,12 @@
+.section {
+	display: flex;
+	flex-direction: column;
+
+	gap: var(--spacing-20);
+	background-color: var(--color-grayscale-900);
+	color: var(--color-white);
+}
+
+.section .subtitle {
+	color: var(--color-primary-400);
+}

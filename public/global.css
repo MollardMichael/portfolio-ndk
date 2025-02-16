@@ -1,10 +1,16 @@
 html,
 body {
+	padding: 0;
+	margin: 0;
 	height: 100%;
 }
 
 body * {
 	font-family: var(--font-family) !important;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 #app-root,
@@ -115,16 +121,23 @@ body * {
 	--color-grayscale-50: #edeeee;
 
 	--gradient-background: linear-gradient(
-			0deg,
-			var(--color-grayscale-800),
-			var(--color-grayscale-800)
+		101.48deg,
+		rgba(0, 0, 0, 0) 29.61%,
+		var(--color-secondary-300) 48.11%,
+		var(--color-primary-600) 69.31%
+	);
+	--gradient-background: linear-gradient(
+			97.27deg,
+			rgba(0, 0, 0, 0) 17.23%,
+			rgba(0, 194, 255, 0.2) 51.32%,
+			rgba(199, 235, 0, 0.2) 90.38%
 		),
 		linear-gradient(
-			101.48deg,
-			rgba(0, 0, 0, 0) 29.61%,
-			var(--color-secondary-300) 48.11%,
-			var(--color-primary-600) 69.31%
+			0deg,
+			var(--color-grayscale-800, #334247),
+			var(--color-grayscale-800, #334247)
 		);
+
 	--focus-ring-color: #0019fe;
 
 	/**
@@ -136,18 +149,20 @@ body * {
 	/**
 	 * @tokens Typography
 	 */
-	--heading-1-font-size: 28px;
-	--heading-2-font-size: 24px;
-	--heading-3-font-size: 20px;
-	--text-small-regular-font-size: 18px;
+	--heading-1-font-size: 48px;
+	--heading-2-font-size: 36px;
+	--heading-3-font-size: 24px;
+	--text-regular-font-size: 18px;
+	--text-small-font-size: 12px;
 
 	/**
 	 * @tokens Typography
 	 */
-	--heading-1-font-weight: 400;
-	--heading-2-font-weight: 400;
-	--heading-3-font-weight: 400;
-	--text-small-regular-font-weight: 400;
+	--heading-1-font-weight: 500;
+	--heading-2-font-weight: 500;
+	--heading-3-font-weight: 500;
+	--text-regular-font-weight: 400;
+	--text-small-font-weight: 400;
 
 	--heading-line-height: 130%;
 }

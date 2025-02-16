@@ -4,7 +4,7 @@ import React, {
 	memo,
 	type ReactNode,
 } from "react";
-import { colors } from "../../constants/design";
+import { colors } from "../../../constants/design";
 
 import "./ndk-button.css";
 
