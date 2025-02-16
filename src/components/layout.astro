@@ -74,7 +74,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
   </script>
 </head>
 <body>
-  <Header mode="white">
+  <Header mode="white" currentPath={currentPath}>
   </Header>
   <slot />
 </body>

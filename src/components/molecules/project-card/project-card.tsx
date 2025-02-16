@@ -38,24 +38,17 @@ export const ProjectCard = memo<ProjectCardProps>(
 					<source media="(min-width: 800px)" srcSet={image.desktopSrc} />
 					<img src={image.desktopSrc} alt={image.alt} className="image" />
 				</picture>
-				<a href={href} className="overlay">
+				<a href={href} className="overlay-text">
 					<div className="project-info">
-						<NdkText
-							style={{ padding: 0, margin: 0 }}
-							mode="h2"
-							className={"chip"}
-						>
+						<NdkText style={{ padding: 0, margin: 0 }} mode="h2">
 							{title}
 						</NdkText>
-						<NdkText
-							style={{ padding: 0, margin: 0 }}
-							mode="small"
-							className={"chip"}
-						>
+						<NdkText style={{ padding: 0, margin: 0 }} mode="small">
 							{description}
 						</NdkText>
 					</div>
 				</a>
+				<div className="overlay" />
 			</div>
 		);
 	},

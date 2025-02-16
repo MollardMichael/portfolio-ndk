@@ -150,9 +150,9 @@ body * {
 	 * @tokens Typography
 	 */
 	--heading-1-font-size: 48px;
-	--heading-2-font-size: 36px;
-	--heading-3-font-size: 24px;
-	--text-regular-font-size: 18px;
+	--heading-2-font-size: 24px;
+	--heading-3-font-size: 20px;
+	--text-regular-font-size: 16px;
 	--text-small-font-size: 12px;
 
 	/**
