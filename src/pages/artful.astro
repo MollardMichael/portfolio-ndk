@@ -1,0 +1,51 @@
+---
+import Layout from "../components/layout.astro";
+import { Image } from "astro:assets";
+import { projects } from "../components/projects";
+import { NdkText } from "../components/atoms/ndk-text/ndk-text";
+import { Chip } from "../components/atoms/chip/chip";
+
+const project = projects.find((project) => project.id === "artful");
+---
+
+<style>
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--spacing-48) var(--spacing-72);
+        background: var(--gradient-background);
+    }
+
+    .container {
+        padding: 0 var(--spacing-40);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .chips {
+        color: var(--color-black);
+        display: flex;
+        gap: 8px
+    }
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+        <div class="container">
+            <NdkText mode="h1">{project.title}</NdkText>
+            <div class="chips">
+                {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
+            </div>
+            <NdkText mode="h3">{project.description}</NdkText>
+            <NdkText mode="body">Artfulは、アートギャラリー向けの作品販売および作品解説アプリです。オンラインギャラリーとして機能し、ユーザはアプリ内でアート作品を鑑賞、気に入った物はそのままオンラインで購入できます。
+                また、Artfulはアートに親しむ機会そのものを提供する場としても機能し、わかりやすいキャプションや作品の背景知識を通じて、初心者の方でも安心してアート作品を楽しみ、購入できるよう設計されています。</NdkText>
+        </div>
+    </section>
+  </main>
+</Layout>

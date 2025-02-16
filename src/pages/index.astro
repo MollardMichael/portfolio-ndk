@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../components/layout.astro";
 import { projects } from "../components/projects";
 import { NdkText } from "../components/atoms/ndk-text/ndk-text";
@@ -78,7 +77,7 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
               title={project.title} 
               description={project.description} 
               href={project.link} 
-              tags={[{name: "ux", mode: "primary"}]} 
+              tags={project.tags} 
             />)
           })
         }

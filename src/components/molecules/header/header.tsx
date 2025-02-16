@@ -11,7 +11,6 @@ export type HeaderProps = {
 
 export const Header = memo<HeaderProps>(
 	({ style, mode = "black", currentPath }) => {
-		console.log(currentPath);
 		return (
 			<header className={`header ${mode}`} style={style}>
 				<NdkText mode="h3" style={{ margin: 0 }}>
