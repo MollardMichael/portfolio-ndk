@@ -63,4 +63,5 @@
 
 .project-card .project-info {
 	width: 304px;
+	padding: var(--spacing-16);
 }

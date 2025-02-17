@@ -37,3 +37,17 @@
 .header nav a.active {
 	color: var(--color-primary-700);
 }
+
+.mobile-title {
+	display: none;
+}
+
+@media (width <= 768px) {
+	.header .desktop-title {
+		display: none;
+	}
+
+	.header .mobile-title {
+		display: block;
+	}
+}

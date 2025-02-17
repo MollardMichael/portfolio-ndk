@@ -27,7 +27,7 @@ const project = projects.find((project) => project.id === "artful");
         background: var(--gradient-background);
     }
 
-    .container {
+    .hero .container {
         padding: 0 var(--spacing-40);
 
         color: var(--color-white);
@@ -46,7 +46,7 @@ const project = projects.find((project) => project.id === "artful");
 
     .section-container {
         background-color: var(--color-grayscale-900);
-        padding: var(--spacing-40) var(--spacing-72);
+        padding: var(--spacing-48) var(--spacing-72);
 
         color: var(--color-white);
 
@@ -69,6 +69,23 @@ const project = projects.find((project) => project.id === "artful");
         align-self: center;
     }
 
+    @media (width <= 768px) {
+        .image {
+            max-width: 100%;
+        }
+
+        .hero {
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+
+        .hero .container {
+            padding: 0;
+        }
+
+        .section-container { 
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+    }
 </style>
 
 <Layout>

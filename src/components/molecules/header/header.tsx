@@ -13,8 +13,11 @@ export const Header = memo<HeaderProps>(
 	({ style, mode = "black", currentPath }) => {
 		return (
 			<header className={`header ${mode}`} style={style}>
-				<NdkText mode="h3" style={{ margin: 0 }}>
+				<NdkText mode="h3" className="desktop-title" style={{ margin: 0 }}>
 					Nodoka KON
+				</NdkText>
+				<NdkText mode="h3" className="mobile-title" style={{ margin: 0 }}>
+					NK
 				</NdkText>
 				<nav aria-labelledby="primary-navigation">
 					<a href="/" className={currentPath === "" ? "active" : ""}>

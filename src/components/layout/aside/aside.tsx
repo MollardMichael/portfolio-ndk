@@ -12,7 +12,7 @@ export type AsideProps = {
 export const Aside = memo<AsideProps>(({ style, sectionName, children }) => {
 	return (
 		<div className={"aside"} style={style}>
-			<NdkText mode="body" style={{ flexShrink: 0 }}>
+			<NdkText mode="body" className="section-title" style={{ flexShrink: 0 }}>
 				{sectionName}
 			</NdkText>
 			{children}
