@@ -1,7 +1,7 @@
 import React, { type CSSProperties, memo, type ReactNode } from "react";
 
 import "./aside.css";
-import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Text } from "../../atoms/text/text";
 
 export type AsideProps = {
 	style?: CSSProperties;
@@ -12,9 +12,9 @@ export type AsideProps = {
 export const Aside = memo<AsideProps>(({ style, sectionName, children }) => {
 	return (
 		<div className={"aside"} style={style}>
-			<NdkText mode="body" className="section-title" style={{ flexShrink: 0 }}>
+			<Text mode="body" className="section-title" style={{ flexShrink: 0 }}>
 				{sectionName}
-			</NdkText>
+			</Text>
 			{children}
 		</div>
 	);

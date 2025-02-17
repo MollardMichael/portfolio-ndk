@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from "@storybook/blocks";
 
-import * as TypographyStories from "../../components/atoms/ndk-text/ndk-text.stories.jsx";
+import * as TypographyStories from "./typography.stories";
 
 
 <Meta title="Tokens/Typography" />
@@ -9,11 +9,4 @@ import * as TypographyStories from "../../components/atoms/ndk-text/ndk-text.sto
 
 フォントは以下のものを使用しています。
 
-
-<Canvas source={{code: `
-<NdkText mode="h1">ユーザー体験を変えるウェブデザインの未来</NdkText>
-<NdkText mode="h2">ユーザー体験を変えるウェブデザインの未来</NdkText>
-<NdkText mode="h3">ユーザー体験を変えるウェブデザインの未来</NdkText>
-<NdkText mode="body">ユーザー体験を変えるウェブデザインの未来</NdkText>
-<NdkText mode="small">ユーザー体験を変えるウェブデザインの未来</NdkText>
-`}} of={TypographyStories.All} />
+<Canvas of={TypographyStories.Default} />

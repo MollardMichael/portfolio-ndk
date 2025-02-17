@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { match } from "ts-pattern";
 
-import "./ndk-text.css";
+import "./text.css";
 
 export type TextProps = {
 	mode?: "h1" | "h2" | "h3" | "body" | "small";
@@ -16,7 +16,7 @@ export type TextProps = {
 	children: ReactNode;
 };
 
-export const NdkText = memo(
+export const Text = memo(
 	forwardRef<HTMLHeadingElement, TextProps>(
 		({ children, mode, style, inline, className = "" }, forwardedRef) => {
 			return match({ mode, inline })

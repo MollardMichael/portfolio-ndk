@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Aside } from "./aside";
-import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Text } from "../../atoms/text/text";
 
 const meta = {
 	title: "Layout/Aside",
@@ -21,12 +21,12 @@ export const Default: Story = {
 		sectionName: "2022 - Now",
 		children: (
 			<div>
-				<NdkText mode="body">Selectra</NdkText>
-				<NdkText mode="body">Location: France, Paris</NdkText>
-				<NdkText mode="body">Mission: Content Manager, UI/UX designer</NdkText>
-				<NdkText mode="body">
+				<Text mode="body">Selectra</Text>
+				<Text mode="body">Location: France, Paris</Text>
+				<Text mode="body">Mission: Content Manager, UI/UX designer</Text>
+				<Text mode="body">
 					コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。コンテンツディレクターとして比較記事の編集を担当。
-				</NdkText>
+				</Text>
 			</div>
 		),
 	},

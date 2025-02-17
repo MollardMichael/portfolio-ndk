@@ -1,7 +1,7 @@
 import React, { type CSSProperties, memo } from "react";
 
 import "./header.css";
-import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Text } from "../../atoms/text/text";
 
 export type HeaderProps = {
 	style?: CSSProperties;
@@ -13,25 +13,25 @@ export const Header = memo<HeaderProps>(
 	({ style, mode = "black", currentPath }) => {
 		return (
 			<header className={`header ${mode}`} style={style}>
-				<NdkText mode="h3" className="desktop-title" style={{ margin: 0 }}>
+				<Text mode="h3" className="desktop-title" style={{ margin: 0 }}>
 					Nodoka KON
-				</NdkText>
-				<NdkText mode="h3" className="mobile-title" style={{ margin: 0 }}>
+				</Text>
+				<Text mode="h3" className="mobile-title" style={{ margin: 0 }}>
 					NK
-				</NdkText>
+				</Text>
 				<nav aria-labelledby="primary-navigation">
 					<a href="/" className={currentPath === "" ? "active" : ""}>
-						<NdkText mode="h3" style={{ margin: 0 }}>
+						<Text mode="h3" style={{ margin: 0 }}>
 							Works
-						</NdkText>
+						</Text>
 					</a>
 					<a
 						href="/about"
 						className={currentPath.startsWith("about") ? "active" : ""}
 					>
-						<NdkText mode="h3" style={{ margin: 0 }}>
+						<Text mode="h3" style={{ margin: 0 }}>
 							About
-						</NdkText>
+						</Text>
 					</a>
 				</nav>
 			</header>

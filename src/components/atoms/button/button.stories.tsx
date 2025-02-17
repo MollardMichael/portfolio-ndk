@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { NdkButtonLink } from "./ndk-button";
+import { ButtonLink } from "./button";
 
 const meta = {
-	title: "Atoms/NdkButtonLink",
+	title: "Atoms/ButtonLink",
 	parameters: {
 		layout: "centered",
 	},
-	component: NdkButtonLink,
-} satisfies Meta<typeof NdkButtonLink>;
+	component: ButtonLink,
+} satisfies Meta<typeof ButtonLink>;
 
 export default meta;
 

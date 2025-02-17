@@ -6,7 +6,7 @@ import React, {
 } from "react";
 
 import "./chip.css";
-import { NdkText } from "../ndk-text/ndk-text";
+import { Text } from "../text/text";
 
 export type ChipProps = {
 	mode?: "primary" | "secondary";
@@ -18,7 +18,7 @@ export const Chip = memo(
 	forwardRef<HTMLHeadingElement, ChipProps>(
 		({ children, mode = "primary", style }, forwardedRef) => {
 			return (
-				<NdkText
+				<Text
 					ref={forwardedRef}
 					style={style}
 					mode="small"
@@ -26,7 +26,7 @@ export const Chip = memo(
 					className={`chip ${mode}`}
 				>
 					{children}
-				</NdkText>
+				</Text>
 			);
 		},
 	),

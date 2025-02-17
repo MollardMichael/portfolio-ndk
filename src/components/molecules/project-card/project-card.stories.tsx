@@ -31,8 +31,8 @@ export const Default: Story = {
 		),
 		image: {
 			alt: "Descriptive image of the project",
-			desktopSrc: "/src/assets/art.png",
-			mobileSrc: "/src/assets/art.png",
+			desktopSrc: "/images/corgi.jpg",
+			mobileSrc: "/images/corgi.jpg",
 		},
 	},
 };

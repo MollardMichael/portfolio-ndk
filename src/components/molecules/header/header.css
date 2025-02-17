@@ -38,7 +38,7 @@
 	color: var(--color-primary-700);
 }
 
-.mobile-title {
+.header .mobile-title {
 	display: none;
 }
 

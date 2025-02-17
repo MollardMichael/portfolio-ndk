@@ -1,7 +1,7 @@
 import React, { type CSSProperties, memo, type ReactNode } from "react";
 
 import "./section.css";
-import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Text } from "../../atoms/text/text";
 
 export type SectionProps = {
 	style?: CSSProperties;
@@ -15,14 +15,14 @@ export const Section = memo<SectionProps>(
 		return (
 			<section className={"section"} style={style}>
 				{subTitle && (
-					<NdkText mode="h3" className="subtitle" style={{ margin: 0 }}>
+					<Text mode="h3" className="subtitle" style={{ margin: 0 }}>
 						{subTitle}
-					</NdkText>
+					</Text>
 				)}
 				{title && (
-					<NdkText mode="h2" className="title" style={{ margin: 0 }}>
+					<Text mode="h2" className="title" style={{ margin: 0 }}>
 						{title}
-					</NdkText>
+					</Text>
 				)}
 				<div className="children">{children}</div>
 			</section>

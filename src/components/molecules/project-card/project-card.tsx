@@ -6,7 +6,7 @@ import React, {
 } from "react";
 
 import "./project-card.css";
-import { NdkText } from "../../atoms/ndk-text/ndk-text";
+import { Text } from "../../atoms/text/text";
 import { Chip } from "../../atoms/chip/chip";
 
 export type ProjectCardProps = {
@@ -40,12 +40,12 @@ export const ProjectCard = memo<ProjectCardProps>(
 				</picture>
 				<a href={href} className="overlay-text">
 					<div className="project-info">
-						<NdkText style={{ padding: 0, margin: 0 }} mode="h2">
+						<Text style={{ padding: 0, margin: 0 }} mode="h2">
 							{title}
-						</NdkText>
-						<NdkText style={{ padding: 0, margin: 0 }} mode="small">
+						</Text>
+						<Text style={{ padding: 0, margin: 0 }} mode="small">
 							{description}
-						</NdkText>
+						</Text>
 					</div>
 				</a>
 				<div className="overlay" />

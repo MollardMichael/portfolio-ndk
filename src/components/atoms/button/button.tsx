@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { colors } from "../../../constants/design";
 
-import "./ndk-button.css";
+import "./button.css";
 
 export type ButtonLinkProps = {
 	ariaControls?: string;
@@ -25,7 +25,7 @@ export type ButtonLinkProps = {
 	  }
 );
 
-export const NdkButtonLink = memo(
+export const ButtonLink = memo(
 	forwardRef<HTMLAnchorElement, ButtonLinkProps>(
 		(
 			{
