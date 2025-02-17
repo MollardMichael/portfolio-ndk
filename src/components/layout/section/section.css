@@ -10,3 +10,8 @@
 .section .subtitle {
 	color: var(--color-primary-400);
 }
+
+.children {
+	display: flex;
+	flex-direction: column;
+}

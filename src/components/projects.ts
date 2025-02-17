@@ -1,6 +1,6 @@
 import logoImg from "../assets/rei-green.png";
 import selectraImg from "../assets/selectra.png";
-import artImg from "../assets/art.png";
+import artImg from "../assets/artful/art.png";
 
 type Project = {
 	id: string;
@@ -28,7 +28,7 @@ export const projects = [
 		title: "Artfull",
 		image: artImg,
 		description: "アートギャラリーのためのモバイルアプリ",
-		link: "/artful",
+		link: "/projects/artful",
 		slideLink:
 			"https://docs.google.com/presentation/d/e/2PACX-1vRMIEGfJQ1kB78RkgIkb4CMvSkwrH4vOvHc_ZGb0CITCZrb6j-fJbaQ5Gfbrbcw2Ttw6TRkqWcmo_b7/pub?start=false&loop=false&delayms=3000",
 		tags: [

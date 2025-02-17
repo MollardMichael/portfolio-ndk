@@ -1,0 +1,163 @@
+---
+import Layout from "../../components/layout.astro";
+import { Image } from "astro:assets";
+import { projects } from "../../components/projects";
+import { NdkText } from "../../components/atoms/ndk-text/ndk-text";
+import { Chip } from "../../components/atoms/chip/chip";
+import { Section } from "../../components/layout/section/section";
+import boardImg from "../../assets/artful/board.jpeg";
+import personaImg from "../../assets/artful/persona.png";
+import joeImg from "../../assets/artful/joe.png";
+import wireframeImg from "../../assets/artful/wireframe.jpeg";
+import wireframeFigmaImg from "../../assets/artful/wireframe-figma.png";
+import modalImg from "../../assets/artful/modal.png";
+import usabilityImg from "../../assets/artful/usability.png";
+import paymentImg from "../../assets/artful/payment.png";
+import mockupImg from "../../assets/artful/mockup.png";
+import prototypeImg from "../../assets/artful/prototype.png";
+
+const project = projects.find((project) => project.id === "artful");
+---
+
+<style>
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--spacing-48) var(--spacing-72);
+        background: var(--gradient-background);
+    }
+
+    .container {
+        padding: 0 var(--spacing-40);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .hero .chips {
+        color: var(--color-black);
+        display: flex;
+        gap: 8px
+    }
+
+    .section-container {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-40) var(--spacing-72);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
+
+    .list {
+        margin: 0;
+        padding: 0px var(--spacing-20);
+    }
+
+    .image {
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        margin-top: var(--spacing-48);
+
+        align-self: center;
+    }
+
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+        <div class="container">
+            <NdkText mode="h1">{project.title}</NdkText>
+            <div class="chips">
+                {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
+            </div>
+            <NdkText mode="h3">{project.description}</NdkText>
+            <NdkText mode="body">Artfulは、アートギャラリー向けの作品販売および作品解説アプリです。オンラインギャラリーとして機能し、ユーザはアプリ内でアート作品を鑑賞、気に入った物はそのままオンラインで購入できます。
+                また、Artfulはアートに親しむ機会そのものを提供する場としても機能し、わかりやすいキャプションや作品の背景知識を通じて、初心者の方でも安心してアート作品を楽しみ、購入できるよう設計されています。</NdkText>
+        </div>
+    </section>
+    <div class="section-container">
+        <Section title="アート作品を買うのは敷居が高い・地方と都心での文化格差", subTitle="問題定義">
+            <NdkText mode="body">問題： ギャラリーに馴染みのない田舎に住んでいると、利用者はギャラリーに行くことができない。また、アートになじみがない人にとってはギャラリーに行く、アート作品を買うのは敷居が高いと感じてしまうこともある。</NdkText>
+            <NdkText mode="body">ゴール： ユーザがどこに住んでいても、美術品や美術の基礎について学ぶ機会を提供し、気に入ったものを見つけたらアプリからオンラインで購入できるようにすること。</NdkText>
+            <Image class="image" src={boardImg} alt="Picture of board of priorities" />
+        </Section>
+        <Section title="ユーザージャーニーマップ作成", subTitle="ユーザーを理解">
+            <NdkText mode="body">ユーザーリサーチを実施し、アプリからの作品閲覧・購入がユーザーにとって容易であることを確認した。 このアプリで競合他社に勝てるようなユーザー満足度と売上を確保する必要があります。遠距離で作品を購入することは、田舎に住んでいて物理的に画廊に行くことができない人だけでなく、美術に関する知識がゼロだと画廊に行くのも気が引けるという人にも役立ちます。 </NdkText>
+            <Image class="image" src={personaImg} alt="Picture of user journey" />
+        </Section>
+        <Section title="ペルソナ作成", subTitle="ユーザーを理解">
+            <NdkText mode="body">ユーザーの気持ちになってサービス設計ができるようにペルソナを作成。</NdkText>
+            <NdkText mode="body">ペルソナのジョーのキャッチコピーは、「アート作品が欲しいが、ギャラリーに足を運ぶのはすこし敷居が高い」と言ったもの。その他、普段の行動をイメージしながらデザインを進める。</NdkText>
+            <Image class="image" src={joeImg} alt="Picture of user persona" />
+        </Section>
+        <Section title="ペーパーワイヤーフレーム作成", subTitle="ページUIデザイン">
+            <NdkText mode="body">アプリケーションに実装する要素を、紙のドラフトを使って考案。ここではホーム画面をA～Eの5パターン考えた。ユーザーの時間を節約し、アクセスしやすくするために、直感的でわかりやすいナビゲーションを取り入れることを念頭に置き、気に入った物を星印をつけて選択。選んだUIは次のステップであるデジタルワイヤーフレームで使用。</NdkText>
+            <Image class="image" src={wireframeImg} alt="Hand written wirframes" />
+        </Section>
+        <Section title="デジタルワイヤーフレーム", subTitle="ページUIデザイン">
+            <NdkText mode="body">デジタルワイヤーフレームで、ベースとなる画面デザインを確認。このワイヤーフレームを使ってユーザーインタビューを行った。</NdkText>
+            <Image class="image" src={wireframeFigmaImg} alt="Hand written wirframes" />
+        </Section>
+        <div><NdkText mode="body">初心者に優しいフィーチャー：</NdkText>
+            <NdkText mode="body">解説内に登場する馴染みのない単語には、簡単な説明がポップアップボックスで表示される。</NdkText>
+            <NdkText mode="body">※ポップアップにした理由：
+    スマホビューではページの行き来が大変。現在のページと別のページを行ったり来たりする必要をなくすため。</NdkText>
+        </div>
+        <Image class="image" src={modalImg} alt="Hand written wirframes" />
+        <Section title="ユーザーインタビュー", subTitle="見えない不便さを検出">
+            <NdkText mode="body">ワイヤーフレームを用いて、アートに明るくない被験者1名を対象にデプスインタビューを実施。そこから他のユーザーにとっても使いづらいと仮定し、該当箇所を改善した。</NdkText>
+            <NdkText mode="body">▼検出した問題</NdkText>
+            <NdkText mode="body">小さなテキストリンクは見つけにくい</NdkText>
+            <NdkText mode="body">支払いプロセスに関するより多くの情報を必要としている。</NdkText>
+        </Section>
+        <Section title="改善点①テキストリンクをボタンに変更", subTitle="デザインのブラッシュアップ">
+            <NdkText mode="body">問題点に対する改善</NdkText>
+            <NdkText mode="body">小さいテキストリンクはほとんどのユーザーにとって見つけにくく、クリックしづらいというフィードバックを元に、アーティスト名をテキストリンクからボタンへ変更した。クリックすることにより、作品リストへ遷移する。</NdkText>
+            <Image class="image" src={usabilityImg} alt="Hand written wirframes" />
+        </Section>
+        <Section title="改善点②支払いのステップを細分化", subTitle="デザインのブラッシュアップ">
+            <NdkText mode="body">支払いプロセスについてより多くの情報が必要というフィードバックをもとに、支払いステップを細分化した。</NdkText>
+            <ul class="list">
+                <li>
+                    <NdkText mode="body">ユーザー情報ページを2分割</NdkText>
+                    <ul class="list">
+                        <li>
+                            <NdkText mode="body">ユーザー個人情報（住所、電話番号、Eメール）</NdkText>
+                        </li>
+                        <li>
+                            <NdkText mode="body">カード情報（カード番号）</NdkText>
+                        </li>
+                        <li>
+                            <NdkText mode="body">キャンセルポリシーを読んでもらう</NdkText>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <NdkText mode="body">サンキューページに、ユーザーが注文詳細のメールを受け取り、確認メールに記載されているURLから配送状況を追跡できるようにする旨の指示を追加する。</NdkText>
+                </li>
+            </ul>
+            <br />
+            <NdkText mode="body">併せて、支払い方法をクレジット以外にPayPal・Google Payにも対応できる仕様に。返品ポリシーの直後に確定ボタンを配置し自然な流れにした。</NdkText>
+            <NdkText mode="body">また、サンキューページ（支払い完了ページ）には、支払完了メールが届くことを記し、メールボックスを確認するよう促す。</NdkText>
+            <Image class="image" src={paymentImg} alt="Hand written wirframes" />
+        </Section>
+        <Section title="モックアップ作成", subTitle="デザインのブラッシュアップ">
+            <NdkText mode="body">ワイヤーフレームから、色や写真を入れたモックアップを作成。</NdkText>
+            <Image class="image" src={mockupImg} alt="Hand written wirframes" />
+        </Section>
+        <Section title="高抽象度プロトタイプを作成", subTitle="最終形をデザイン">
+            <NdkText mode="body">デザインシステムを反映したモックアップに、ユーザーフローを指定して高抽象度プロトタイプを作成。</NdkText>
+            <Image class="image" src={prototypeImg} alt="Hand written wirframes" /> 
+        </Section>
+    </div>
+  </main>
+</Layout>
