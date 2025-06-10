@@ -1,0 +1,144 @@
+---
+import Layout from "../../components/layout.astro";
+import { Image } from "astro:assets";
+import { projects } from "../../components/projects";
+import { Text } from "../../components/atoms/text/text";
+import { Chip } from "../../components/atoms/chip/chip";
+import { Section } from "../../components/layout/section/section";
+
+// Dummy images - replace with actual images later
+import competitorResearchImg from "../../assets/localization/competitor-research.png";
+import typoImg from "../../assets/localization/typo.png";
+import lineHeightImg from "../../assets/localization/line-height.png";
+import lineHeightComparisonImg from "../../assets/localization/line-height-comparison.png";
+import abTestOriginalImg from "../../assets/localization/ab-test-original.png";
+import abTestVariantImg from "../../assets/localization/ab-test-variant.png";
+import resultImg from "../../assets/localization/result.png";
+
+const project = projects.find((project) => project.id === "localization");
+---
+
+<style>
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--spacing-48) var(--spacing-72);
+        background: var(--gradient-background);
+    }
+
+    .hero .container {
+        padding: 0 var(--spacing-40);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .hero .chips {
+        color: var(--color-black);
+        display: flex;
+        gap: 8px
+    }
+
+    .section-container {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-48) var(--spacing-72);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
+
+    .list {
+        margin: 0;
+        padding: 0px var(--spacing-20);
+    }
+
+    .image {
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        margin-top: var(--spacing-48);
+
+        align-self: center;
+    }
+
+    @media (width <= 768px) {
+        .image {
+            max-width: 100%;
+        }
+
+        .hero {
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+
+        .hero .container {
+            padding: 0;
+        }
+
+        .section-container { 
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+    }
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+        <div class="container">
+            <Text mode="h1">{project.title}</Text>
+            <div class="chips">
+                {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
+            </div>
+            <Text mode="h3">{project.description}</Text>
+        </div>
+    </section>
+    <div class="section-container">
+        <Section title="担当範囲", subTitle="プロジェクトの概要">
+            <Text mode="body">比較的ページビューの多いページを対象とした。</Text>
+            <Text mode="body">使用ツール：Google Optimize A/B testing tool</Text>
+        </Section>
+
+        <Section title="なぜこのテストを行ったのか？", subTitle="仮説とA/Bテスト実施">
+            <Text mode="body">当社のウェブサイトのデザインは欧文（ラテン文字）前提で作られている。日本の競合サイトをはじめ、いわゆる読み物系サイト（新聞やブログなど）をチェックしてみたところ、当社のものにくらべてほとんどのサイトで行間が広いことがわかった。行間が、ユーザーがサイト上で感じる快適さと関係があるかどうかを調べるため、私たちはこのA/Bテストを実施することにした。</Text>
+            <Text mode="body">デフォルトよりも行間を広げることで、日本語のウェブページが読みやすくなると想定。その結果、デフォルト設定のページよりも直帰率が下がるという仮説を立てた。</Text>
+            <Image class="image" src={competitorResearchImg} alt="Competitor analysis" />
+        </Section>
+
+        <Section title="日本語とラテンアルファベットの空白の差", subTitle="なぜこのトピックが重要なのか">
+            <Text mode="body">日本語の文字は小文字や句読点を除きすべて同じ高さである。その点、ラテンアルファベットでは各文字に多くの空白が含まれるため、テキスト本文にスペースがあるように見えるが、日本語の文字はすべて同じ高さであるため、テキスト本文は全体として窮屈に見える。</Text>
+            <Image class="image" src={typoImg} alt="Analysis of website metrics" />
+            <Image class="image" src={lineHeightImg} alt="Line height" />
+            <Image class="image" src={lineHeightComparisonImg} alt="Line height comparison" />
+        </Section>
+
+        <Section title="比較対象", subTitle="A/Bテスト">
+            <Text mode="body">比較内容：行間本文の位置</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">Originalは1.5em</Text>
+                </li>
+                <li>
+                    <Text mode="body">Variant1は1.75em</Text>
+                </li>
+            </ul>
+            <Text mode="body">※本来は比較要素を1つに絞り対照実験をする所だが、今回は相乗効果を期待してリストのインデントの有無も同時にテストした。</Text>
+            <Image class="image" src={abTestOriginalImg} alt="Original version with 1.5em line height" />
+            <Image class="image" src={abTestVariantImg} alt="Variant version with 1.75em line height" />
+        </Section>
+
+        <Section title="結果と考察", subTitle="結果">
+            <Text mode="body">テスト期間中、OriginalとVariantの直帰率に有意差は見られなかったため、仮説は棄却された。</Text>
+            <Text mode="body">しかし、差が見られなかったことから、行間を広げても直帰率は下がらないとも言える。このように、ウェブサイトを見やすく、親しみやすいものにしたいのであれば、行間を広げたり、インデントを入れたりしても、直帰率を下げることは無いと結論づけられる。</Text>
+            <Text mode="body">line-heightについては、body部分でem2.0がデフォルトとなるように実装。</Text>
+            <Image class="image" src={resultImg} alt="Result image" />
+        </Section>
+        
+    </div>
+  </main>
+</Layout>

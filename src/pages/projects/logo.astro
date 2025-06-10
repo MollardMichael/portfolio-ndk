@@ -1,11 +1,12 @@
 ---
-import Layout from "../components/layout.astro";
+import Layout from "../../components/layout.astro";
 import { Image } from "astro:assets";
-import reiPc from "../assets/rei-pc.webp";
-import reiGreen from "../assets/rei-green.png";
-import reiFlat from "../assets/rei-flat.png";
-import reiSticker from "../assets/sticker-outcome.jpg";
-import { projects } from "../components/projects";
+import reiPc from "../../assets/rei-pc.webp";
+import reiGreen from "../../assets/rei-green.png";
+import reiFlat from "../../assets/rei-flat.png";
+import reiSticker from "../../assets/sticker-outcome.jpg";
+import { projects } from "../../components/projects";
+import { ButtonLink } from "../../components/atoms/button/button";
 
 const logo = projects.find((project) => project.id === "logo");
 ---
@@ -43,9 +44,7 @@ const logo = projects.find((project) => project.id === "logo");
           使用ツール：Inkscape・Blender <br>会社の先輩の名前でロゴタイプを作成。ステッカーにして誕生日にプレゼントした。 
         </p>
         <div class="content">
-          <a href="/logo3d" class="button">
-            3Dで見る
-          </a>
+          <ButtonLink href="/logo3d">3Dで見る</ButtonLink>
           <Image src={reiGreen} alt="Picture of 3D Model"  width={800}/>
           <Image src={reiFlat} alt="Rei written on a digital picture"  width={800}/>
           <Image src={reiSticker} alt="3D Model on stickers"  width={800}/>

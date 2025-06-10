@@ -1,0 +1,152 @@
+---
+import Layout from "../../components/layout.astro";
+import { Image } from "astro:assets";
+import { projects } from "../../components/projects";
+import { Text } from "../../components/atoms/text/text";
+import { Chip } from "../../components/atoms/chip/chip";
+import { Section } from "../../components/layout/section/section";
+import tokensImg from "../../assets/portfolio/tokens.png";
+import tokens2Img from "../../assets/portfolio/tokens2.png";
+
+const project = projects.find((project) => project.id === "portfolio");
+---
+
+<style>
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--spacing-48) var(--spacing-72);
+        background: var(--gradient-background);
+    }
+
+    .hero .container {
+        padding: 0 var(--spacing-40);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .hero .chips {
+        color: var(--color-black);
+        display: flex;
+        gap: 8px
+    }
+
+    .section-container {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-48) var(--spacing-72);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
+
+    .list {
+        margin: 0;
+        padding: 0px var(--spacing-20);
+    }
+
+    .image {
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        margin-top: var(--spacing-48);
+
+        align-self: center;
+    }
+
+    @media (width <= 768px) {
+        .image {
+            max-width: 100%;
+        }
+
+        .hero {
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+
+        .hero .container {
+            padding: 0;
+        }
+
+        .section-container { 
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+    }
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+        <div class="container">
+            <Text mode="h1">{project.title}</Text>
+            <div class="chips">
+                {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
+            </div>
+            <Text mode="h3">{project.description}</Text>
+        </div>
+    </section>
+    <div class="section-container">
+        <Section title="プロジェクトの概要", subTitle="担当範囲">
+            <Text mode="body">今回担当した範囲は以下の4つ。</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">サイトのUXデザイン</Text>
+                </li>
+                <li>
+                    <Text mode="body">情報設計（サイト設計）</Text>
+                </li>
+                <li>
+                    <Text mode="body">デザインシステムの構築</Text>
+                </li>
+                <li>
+                    <Text mode="body">フロントエンドエンジニアと協働での開発</Text>
+                </li>
+            </ul>
+            <br />
+            <Text mode="body">ターゲット：企業の採用担当者</Text>
+            <Text mode="body">開発期間：1ヶ月</Text>
+            <Text mode="body">開発方法：Figmaでデザインシステムとプロトタイプを作成。その後、フロントエンジニアと連携し実装する方法をとった。</Text>
+            <Text mode="body">使用ツール：Figma / Gimp</Text>
+            <Text mode="body">ウェブサイト構築方法：独自ドメイン（nodoka-kon.me）を取得後、CDN（Cloudflare）でコンテンツを管理する。</Text>
+        </Section>
+        
+        <Section title="デザインシステム", subTitle="色・スペーシング・Radius">
+            <Text mode="body">デザインシステムでPrimaryとSecondaryの色、そして背景・文字に使用するGlayscaleの色味を決定。また、サイト内での間隔（spacing）は4の倍数で設定。ボタンやカードを使用する場合に使う角丸のradiusも3種類を設定した。</Text>
+            <Text mode="body">色の選定について</Text>
+            <Text mode="body">管理者が特に夜間の作業が多いという理由でダークモードをデフォルトに選択。Primaryに黄色を選んだのは、視認性の良さと「光」のイメージから。Nodoka KONの明るい人柄もそこで表現したいという意図もある。また、マテリアルカラーで補色となる青のカラーバレットをSecondaryとして選択。青と黄色の2色を使用することで、背景のダークブルーで実直さと朗らかさ、柔軟さの両立を図った。グラデーションを用いることで、モダンな雰囲気も演出する狙いがある。</Text>
+            <Image class="image" src={tokensImg} alt="Design System" />
+        </Section>
+
+        <Section title="デザインシステム", subTitle="フォント・行間（line-spacing）">
+            <Text mode="body">フォント、h2・h3・本文それぞれのフォントサイズを設定した。それぞれのフォントサイズに合わせて、行間も設定。文字が大きいほど行間を広くとり、視認性を確保している。</Text>
+            <Image class="image" src={tokens2Img} alt="Design System" />
+        </Section>
+
+        <Section title="コンポーネント作成", subTitle="デザインシステム">
+            <Text mode="body">サイトで使用するエレメントをコンポーネント化。プロトタイプは、これらコンポーネントを組み合わせて作成。ボタンや、チップはPrimary・Secondaryなどのvariantを設定し、使いたいモードをすぐに使えるようにしている。</Text>
+        </Section>
+
+        <Section title="プロトタイプの作成", subTitle="UXデザイン">
+            <Text mode="body">ページの最終形態をプロトタイプに落とし込む。</Text>
+        </Section>
+
+        <Section title="UIキットの作成", subTitle="デザインシステム">
+            <Text mode="body">コンポーネント化したエレメントをもとに、エンジニアがUIキットを作成。コンポーネントのデザインがCSSに反映される。</Text>
+        </Section>
+
+        <Section title="コーディング", subTitle="実装">
+            <Text mode="body">エンジニアがコーディングしたテストページを確認後、本番環境にプッシュ。この段階でモバイルビューのデザインも固めた。</Text>
+        </Section>
+
+        <Section title="サイトの完成図", subTitle="実装">
+            <Text mode="body">実際に公開されたウェブページ。</Text>
+        </Section>
+    </div>
+  </main>
+</Layout>

@@ -27,35 +27,6 @@ const currentPath = pathname.slice(1); // remove the first "/"
 
   <link rel="stylesheet" href="/global.css">
   <style is:global>
-    a:link,
-    a:visited {
-      position: relative;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a:before {
-      transition: all 0.2s ease-in-out;
-      content: '';
-      background: var(--highlight);
-      display: block;
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 3px;
-    }
-
-    a:hover,
-    a:focus {
-      text-decoration-color: var(--highlight);
-    }
-
-    a:hover::before {
-      width: 100%;
-    }
-
     header {
       padding: var(--spacing-24) var(--spacing-72);
       background: var(--gradient-background);
