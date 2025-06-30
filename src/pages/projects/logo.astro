@@ -8,7 +8,7 @@ import reiSticker from "../../assets/sticker-outcome.jpg";
 import { projects } from "../../components/projects";
 import { ButtonLink } from "../../components/atoms/button/button";
 
-const logo = projects.find((project) => project.id === "logo");
+const project = projects.find((project) => project.id === "logo");
 ---
 
 <style>
@@ -39,7 +39,7 @@ const logo = projects.find((project) => project.id === "logo");
   <main>
     <section class="hero">
       <div>
-        <h1>{logo.title}</h1>
+        <h1>{project.title}</h1>
         <p>
           使用ツール：Inkscape・Blender <br>会社の先輩の名前でロゴタイプを作成。ステッカーにして誕生日にプレゼントした。 
         </p>

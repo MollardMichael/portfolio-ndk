@@ -88,7 +88,12 @@ const project = projects.find((project) => project.id === "portfolio");
             <div class="chips">
                 {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
             </div>
-            <Text mode="h3">{project.description}</Text>
+            <div style="text-align: center;">
+            {project.description.map((desc) => (
+                <Text mode="h3">{desc}</Text>
+            ))}
+            </div>
+            <Image src={project.image} alt={project.title} layout='full-width' width={800}/>
         </div>
     </section>
     <div class="section-container">

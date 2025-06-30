@@ -35,6 +35,17 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-48);
  }
+
+ @media (width > 1024px) {
+  .works {
+    background-color: var(--color-grayscale-900);
+    padding: var(--spacing-48) calc(var(--spacing-96) + var(--spacing-40));
+  }
+    .works .container {
+      gap: var(--spacing-72);
+    }
+ }
+
   @media (width <= 768px) {
 
     .hero {
@@ -77,6 +88,7 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
               format: "webp",
               width: 1600,
             })
+
             return (
             <ProjectCard 
               image={{alt: "Project main picture", 
