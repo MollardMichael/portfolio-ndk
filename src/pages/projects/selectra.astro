@@ -1,0 +1,266 @@
+---
+import Layout from "../../components/layout.astro";
+import { Image } from "astro:assets";
+import { projects } from "../../components/projects";
+import { Text } from "../../components/atoms/text/text";
+import { Chip } from "../../components/atoms/chip/chip";
+import { Section } from "../../components/layout/section/section";
+import proposalImg from "../../assets/selectra/proposal.png";
+import targetImg from "../../assets/selectra/target.png";
+import prototypeImg from "../../assets/selectra/prototype.png";
+import tasksImg from "../../assets/selectra/tasks.png";
+import feedbackImg from "../../assets/selectra/feedback.png";
+import priorityImg from "../../assets/selectra/priority.png";
+import beforeAfterImg from "../../assets/selectra/before-after.png";
+import dataImg from "../../assets/selectra/data.png";
+import themeImg from "../../assets/selectra/theme1.png";
+import statisticsImg from "../../assets/selectra/statistics.png";
+
+const project = projects.find((project) => project.id === "selectra");
+---
+
+<style>
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: var(--spacing-48) var(--spacing-72);
+        background: var(--gradient-background);
+    }
+
+    .hero .container {
+        padding: 0 var(--spacing-40);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    .hero .chips {
+        color: var(--color-black);
+        display: flex;
+        gap: 8px
+    }
+
+    .section-container {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-48) var(--spacing-72);
+
+        color: var(--color-white);
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
+
+    .list {
+        margin: 0;
+        padding: 0px var(--spacing-20);
+    }
+
+    .image {
+        max-width: 80%;
+        width: auto;
+        height: auto;
+        margin-top: var(--spacing-48);
+
+        align-self: center;
+    }
+
+    @media (width <= 768px) {
+        .image {
+            max-width: 100%;
+        }
+
+        .hero {
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+
+        .hero .container {
+            padding: 0;
+        }
+
+        .section-container { 
+            padding: var(--spacing-48) var(--spacing-24);
+        }
+    }
+</style>
+
+<Layout>
+  <main>
+    <section class="hero">
+        <div class="container">
+            <Text mode="h1">{project.title}</Text>
+            <div class="chips">
+                {project.tags.map(tag => <Chip mode={tag.mode}>{tag.name}</Chip>)}
+            </div>
+            <div style="text-align: center;">
+            {project.description.map((desc) => (
+                <Text mode="h3">{desc}</Text>
+            ))}
+            </div>
+            <Image src={project.image} alt={project.title} layout='full-width' width={800}/>
+        </div>
+    </section>
+    <div class="section-container">
+        <Section title="なぜこのプロジェクトを行ったか", subTitle="出発点">
+            <Text mode="body">一時期からSEOパフォーマンスが低下したことを受け、競合分析を実施。ブランディングの弱さに加え、サービスサイトのUI/UXの課題が浮上。</Text>
+            <Text mode="body">オーガニック検索からの流入が非常に多いサイトであるため今まで注視してこなかったが、トップページからの離脱の多さが目立った。ブランディングの弱さに加え、サービスサイトのUI/UXの課題が浮上。オーガニック流入が多いため軽視されてきたが、トップページでの離脱が目立つ。/UXの課題が浮上。</Text>
+            <Text mode="body">仮説：</Text>
+            <Text mode="body">①迷ってトップページに戻り「怪しい」と感じて離脱</Text>
+            <Text mode="body">②必要な情報が見つからず離脱</Text>
+            <Text mode="body">理想は、ユーザーが次のアクション（閲覧・探索）を起こせる状態。</Text>
+            <Text mode="body">ただし仮説にはバイアスの可能性があるため、第三者の意見も参考にし、的確な問題把握と改修案をもとにエンジニアへ提案する方針とした。</Text>
+            <Image class="image" src={proposalImg} alt="Proposal" />
+            <Image class="image" src={targetImg} alt="Target" />
+        </Section>
+
+        <Section title="プロジェクト概要・担当範囲", subTitle="プロジェクトの概要">
+            <Text mode="body">UXデザイナーとして、「料金比較セレクトラ」（月間ユーザー数100万）サービストップページのUI/UXを改善する。</Text>
+            <Text mode="body">チーム体制</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">リサーチアシスタント1名</Text>
+                </li>
+                <li>
+                    <Text mode="body">プログラマー1名</Text>
+                </li>
+            </ul>
+        </Section>
+
+        <Section title="主な業務・取り組み", subTitle="仮説とA/Bテスト実施">
+            <ul class="list">
+                <li>
+                    <Text mode="body">問題点の洗い出し</Text>
+                </li>
+                <li>
+                    <Text mode="body">要件定義、スケジュール管理</Text>
+                </li>
+                <li>
+                    <Text mode="body">この段階で考えられる改善案出し</Text>
+                </li>
+                <li>
+                    <Text mode="body">ユーザーインタビュー</Text>
+                </li>
+                <li>
+                    <Text mode="body">ワイヤーフレーム作成</Text>
+                </li>
+                <li>
+                    <Text mode="body">最初に作った改善案のブラッシュアップ</Text>
+                </li>
+                <li>
+                    <Text mode="body">プロトタイプ作成</Text>
+                </li>
+                <li>
+                    <Text mode="body">エンジニアに実装の依頼・細かいデザインの調整</Text>
+                </li>
+            </ul>
+        </Section>
+
+        <Section title="成果", subTitle="最終的に効果はあったか">
+            <Text mode="body">サービストップページに置けるユーザー1人あたりのイベント数+400%達成。サイト内の回遊率UPに貢献。</Text>
+        </Section>
+
+        <Section title="初期改善案を反映したプロトタイプでユーザビリティテスト実施", subTitle="ユーザビリティテスト">
+            <Text mode="body">チーム内で出た初期改善案を反映したプロトタイプを使用してユーザビリティテストを実施。デスクトップユーザーが多いため、デスクトップビューでテストを実施。デスクトップビューでのレイアウトをもとに、同様のレイアウトをモバイルビューにも反映するというフローを想定。</Text>
+            <Image class="image" src={prototypeImg} alt="Prototype" />
+        </Section>
+
+        <Section title="実際の質問内容", subTitle="ユーザビリティテスト">
+            <Text mode="body">電気や光回線に対する知識をたずねる質問・タスク依頼・5段階評価の3分野を主にテストした。</Text>
+            <br />
+            <Text mode="body" bold>普段の行動に関する基本的な質問の一例：</Text>
+            <ul>
+                 <li>
+                    <Text mode="body">自分でネット回線を契約したことがありますか？</Text>
+                    <Text mode="body">はい→難しかったことは何ですか？</Text>
+                </li>
+            </ul>
+            <br />
+            <Text mode="body" bold>タスク：</Text>
+            <ul>
+                 <li>
+                    <Text mode="body">Prompt 1: 引っ越しを機に、新居で契約する光回線をこのウェブサイトで探します。どうしますか？</Text>
+                    <Text mode="body">できた→どうしてそこをクリックしましたか？</Text>
+                    <Text mode="body">できない→何を探していましたか？</Text>
+                    <Text mode="body">★Prompt 1 フォローアップ:</Text>
+                    <Text mode="body">このタスクは簡単でしたか？難しかったですか？「こうだったらいいのにな」という点はありますか？</Text>
+                </li>
+            </ul>
+            <br />
+            <Text mode="body" bold>5段階評価部分</Text>
+            <Text mode="body">参加者にはシステムの使いやすさの尺度を記入してもらった。"強く反対 "から "強く賛成 "までの5段階から1つを選択する形式。</Text>
+            <ul>
+                 <li>
+                    <Text mode="body">このウェブサイトを使う前に、事前に色々と知識が必要だと思う。</Text>
+                </li>
+                 <li>
+                    <Text mode="body">このページを使いこなせる自信がある。</Text>
+                </li>
+                 <li>
+                    <Text mode="body">何をすればいいかすぐに分かる。</Text>
+                    <Text mode="body">タスクはなるべく現実的なものを選ぶ。一般的に日常生活で起こりそうな行動にする。</Text>
+                </li>
+                
+                 <li>
+                    <Text mode="body">タスクが不用意に手がかりを与えないようにすること。カテゴリのラベルや機能名には言及しない。テスト中のやりとりがヒントにならないようにする。</Text>
+                </li>
+                
+                 <li>
+                    <Text mode="body">タスクは感情的であってはならない。ユーザーの個人的な生活や人間関係を推測するようなことはしない。(両親や妻など、家族について言及しない。）</Text>
+                </li>
+                
+                 <li>
+                    <Text mode="body">参考：<a href="https://www.nngroup.com/articles/usability-testing-101/">https://www.nngroup.com/articles/usability-testing-101/</a></Text>
+                </li>
+            </ul>
+            <Image class="image" src={tasksImg} alt="Tasks" />
+        </Section>
+
+        <Section title="アフィニティダイヤグラム作成", subTitle="ユーザビリティテスト">
+            <Text mode="body">1つ1つのフィードバックを、テーマ別に分類する（アフィニティダイヤグラム化）。主にネガティブフィードバックを抽出。そうすることで、それぞれのフィードバックが視覚情報・ナビゲーション・ブランディングなど何を改善すれば解決できそうなフィードバックかのパターンが浮かび上がる。その後、ユーザビリティへの直接影響が最も高そうかつフィードバックが多かったものをP0（最優先）として、順に優先順位を決定。</Text>
+            <Image class="image" src={feedbackImg} alt="Feedback" />
+            <Image class="image" src={priorityImg} alt="Feedback" />
+        </Section>
+
+        <Section title="初期プロトタイプをブラッシュアップ", subTitle="改善案をブラッシュアップ">
+            <Text mode="body">ユーザビリティテストで浮かび上がったさらなる改善案をもとに、ユーザビリティテストで使用したプロトタイプをブラッシュアップする。</Text>
+            <Image class="image" src={themeImg} alt="Theme" />
+        </Section>
+
+        <Section title="最終成果物", subTitle="改善案をブラッシュアップ">
+            <Text mode="body">最終的にデザインはこのようになった。</Text>
+            <Image class="image" src={beforeAfterImg} alt="Theme" />
+        </Section>
+
+        <Section title="効果測定", subTitle="改善案をブラッシュアップ">
+            <Text mode="body">新しいホームページを公開してから2か月が経過。リニューアル後のホームページで観察されたパフォーマンスの変化を計測。</Text>
+            <Text mode="body">知りたいことは？：ページのユーザビリティ</Text>
+            <Text mode="body">指標（確認するGA4のメトリクス）は？：</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">直帰率（GA4）</Text>
+                    <Text mode="body">ページで何のアクションも起こさずに離脱する人の数は減少したか？</Text>
+                </li>
+                <li>
+                    <Text mode="body">ユーザーごとのイベント数（GA4）</Text>
+                    <Text mode="body">ページ上で発生するアクションの数は増加したか？</Text>
+                </li>
+            </ul>
+        </Section>
+
+        <Section title="バウンスレート　-3.48%", subTitle="プロジェクトの好影響">
+            <Text mode="body">トップページに戻ったのち迷って離脱する人が多いという見立てだったが、改善後はバウンスレートの低下＝回遊率アップが見られる。</Text>
+            <Text mode="body">※メトリクスの解釈は2023年当時のもの</Text>
+            <Image class="image" src={dataImg} alt="Data" />
+        </Section>
+
+        <Section title="バウンスレート -3.48% 統計的に有意か？ →有意", subTitle="プロジェクトの好影響">
+            <Text mode="body">3.48%は誤差の範囲である可能性があるため、この数値が統計的に有意か、偶然によるものかを評価するために、帰無仮説を棄却できるか確認。過去1年間の直帰率の分布を分析した結果、5月における75％の直帰率が発生する確率は5％未満（p &lt; 0.05）であることが分かった。これは、結果が偶然によるものではない可能性が高いことを示し、実施した施策が実際に効果を上げたことを示唆している。</Text>
+            <Image class="image" src={statisticsImg} alt="P Value Statistics" />
+        </Section>
+    </div>
+  </main>
+</Layout>
