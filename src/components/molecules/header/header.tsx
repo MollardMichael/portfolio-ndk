@@ -13,9 +13,14 @@ export const Header = memo<HeaderProps>(
 	({ style, mode = "black", currentPath }) => {
 		return (
 			<header className={`header ${mode}`} style={style}>
-				<Text mode="h3" className="desktop-title" style={{ margin: 0 }}>
-					Nodoka KON
+				<div className="desktop-title">
+				<Text mode="h3" style={{ margin: 0 }}>
+					Nodoka
 				</Text>
+				<Text mode="h3" style={{ margin: 0 }}>
+					Kon
+				</Text>
+				</div>
 				<Text mode="h3" className="mobile-title" style={{ margin: 0 }}>
 					NK
 				</Text>
