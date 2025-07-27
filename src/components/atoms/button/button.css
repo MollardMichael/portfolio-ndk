@@ -12,6 +12,7 @@
 	font-size: 24px;
 	line-height: 31.68px;
 	letter-spacing: -2px;
+	border-radius: 100px;
 	color: inherit;
 
 	user-select: none;
@@ -32,15 +33,16 @@
 }
 
 .button.secondary {
-	background-color: var(--color-secondary-400);
+	background-color: var(--color-grayscale-800);
+	color: var(--color-primary-200);
 }
 
 .button.secondary:hover {
-	color: var(--color-grayscale-700);
-	background-color: var(--color-secondary-600);
+	background-color: var(--color-grayscale-600);
+	color: var(--color-primary-200);
 }
 
 .button.secondary:active {
-	color: var(--color-grayscale-50);
-	background-color: var(--color-secondary-900);
+	background-color: var(--color-grayscale-400);
+	color: var(--color-primary-400);
 }
