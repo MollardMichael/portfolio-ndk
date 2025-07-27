@@ -13,12 +13,12 @@
   "devDependencies": {
     "@astrojs/sitemap": "3.4.1",
     "@chromatic-com/storybook": "4.0.1",
-    "@storybook/addon-docs": "^9.0.14",
-    "@storybook/addon-onboarding": "9.0.14",
-    "@storybook/react-vite": "9.0.14",
+    "@storybook/addon-docs": "^9.0.18",
+    "@storybook/addon-onboarding": "9.0.18",
+    "@storybook/react-vite": "9.0.18",
     "@types/three": "0.177.0",
     "astro": "5.10.1",
-    "storybook": "9.0.14"
+    "storybook": "9.0.18"
   },
   "dependencies": {
     "@astrojs/react": "4.3.0",
