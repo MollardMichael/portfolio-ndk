@@ -22,6 +22,22 @@ a:visited {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.link-with-icon--copy:hover, .link-with-icon--copy:active:hover {
+  color: inherit;
+}
+
+.link-with-icon--copy .link-with-icon__icon {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.link-with-icon--copy:hover .link-with-icon__icon {
+  background-color: var(--color-secondary-300);
 }
 
 .link-with-icon__icon svg {

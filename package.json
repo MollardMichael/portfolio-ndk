@@ -26,6 +26,7 @@
     "@types/react-dom": "19.1.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-tooltip": "^5.29.1",
     "three": "0.178.0",
     "ts-pattern": "5.7.1"
   }
