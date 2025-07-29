@@ -12,6 +12,7 @@ type Project = {
   link: string;
   tags: { mode: "primary" | "secondary"; name: string }[];
   slideLink?: string;
+  hide?: boolean;
 };
 
 export const projects = [
@@ -62,13 +63,13 @@ export const projects = [
       { name: "A/B Testing", mode: "secondary" },
     ],
   },
-
-  // {
-  //   id: "logo",
-  //   title: "グラフィック制作",
-  //   image: logoImg,
-  //   description: ["Blenderで3Dロゴタイプを作成"],
-  //   link: "/projects/logo",
-  //   tags: [{ name: "Graphics", mode: "primary" }],
-  // },
+  {
+    id: "logo",
+    title: "グラフィック制作",
+    image: logoImg,
+    description: ["Blenderで3Dロゴタイプを作成"],
+    link: "/projects/logo",
+    tags: [{ name: "Graphics", mode: "primary" }],
+    hide: true,
+  },
 ] satisfies Project[];
