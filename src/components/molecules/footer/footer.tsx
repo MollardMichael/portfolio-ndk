@@ -26,13 +26,13 @@ export const Footer = memo<FooterProps>(({ style, className = "" }) => {
 
         <nav className="nav-links">
           <a href="/">
-            <Text mode="body">WORKS</Text>
+            <Text mode="body" inline>WORKS</Text>
           </a>
           <a href="/about">
-            <Text mode="body">ABOUT</Text>
+            <Text mode="body" inline>ABOUT</Text>
           </a>
           <LinkWithIcon href="/ui-kit" icon="external" target="_blank">
-            UI KIT
+            <Text mode="body" inline>UI KIT</Text>
           </LinkWithIcon>
         </nav>
 
