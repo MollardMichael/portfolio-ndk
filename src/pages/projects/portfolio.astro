@@ -7,6 +7,11 @@ import { Chip } from "../../components/atoms/chip/chip";
 import { Section } from "../../components/layout/section/section";
 import tokensImg from "../../assets/portfolio/tokens.png";
 import tokens2Img from "../../assets/portfolio/tokens2.png";
+import figmaImg from "../../assets/portfolio/figma.png";
+import componentsImg from "../../assets/portfolio/components.png";
+import uikitImg from "../../assets/portfolio/ui-kit.png";
+import codingImg from "../../assets/portfolio/coding.png";
+import websiteImg from "../../assets/portfolio/website.png";
 import { LinkWithIcon } from "../../components/atoms/link-with-icon";
 import { ExternalIcon } from "../../components/atoms/icons/external";
 
@@ -38,16 +43,22 @@ const project = projects.find((project) => project.id === "portfolio");
     gap: 8px;
   }
 
-  .section-container {
-    background-color: var(--color-grayscale-900);
-    padding: var(--spacing-48) var(--spacing-72);
+    .section-wrapper {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-48) var(--spacing-72);
+        
+        color: var(--color-white);
+    }
 
-    color: var(--color-white);
+    .section-container {
+        max-width: 1024px;
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-48);
-  }
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
 
   .list {
     margin: 0;
@@ -76,7 +87,7 @@ const project = projects.find((project) => project.id === "portfolio");
       padding: 0;
     }
 
-    .section-container {
+    .section-wrapper {
       padding: var(--spacing-48) var(--spacing-24);
     }
   }
@@ -98,106 +109,93 @@ const project = projects.find((project) => project.id === "portfolio");
           alt={project.title}
           layout="full-width"
           width={800}
+          priority
         />
       </div>
     </section>
-    <div class="section-container">
-      <Section title="プロジェクトの概要" , subTitle="担当範囲">
-        <Text mode="body">今回担当した範囲は以下の4つ。</Text>
-        <ul class="list">
-          <li>
-            <Text mode="body">サイトのUXデザイン</Text>
-          </li>
-          <li>
-            <Text mode="body">情報設計（サイト設計）</Text>
-          </li>
-          <li>
-            <Text mode="body">デザインシステムの構築</Text>
-          </li>
-          <li>
-            <Text mode="body">フロントエンドエンジニアと協働での開発</Text>
-          </li>
-        </ul>
-        <br />
-        <Text mode="body">ターゲット：企業の採用担当者</Text>
-        <Text mode="body">開発期間：1ヶ月</Text>
-        <Text mode="body"
-          >開発方法：Figmaでデザインシステムとプロトタイプを作成。その後、フロントエンジニアと連携し実装する方法をとった。</Text
-        >
-        <Text mode="body">使用ツール：Figma / Gimp</Text>
-        <Text mode="body"
-          >ウェブサイト構築方法：独自ドメイン（nodoka-kon.me）を取得後、CDN（Cloudflare）でコンテンツを管理する。</Text
-        >
-        <br />
-        <Text mode="body">リンク：</Text>
-        <LinkWithIcon
-          href="https://www.figma.com/design/Dh1w2cXiKKEM7KjqUswaya/Nodoka-Portfolio?node-id=27-129&p=f&t=KpJVTFB8jLDiI45X-0&t=KpJVTFB8jLDiI45X-0"
-          target="_blank"
-          icon="external"
-        >
-          Figma
-        </LinkWithIcon>
-        <LinkWithIcon
-          href="https://nodoka-kon.me/ui-kit/"
-          target="_blank"
-          icon="external"
-        >
-          UI Kit
-        </LinkWithIcon>
-      </Section>
+    <div class="section-wrapper">
+        <div class="section-container">
+            <Section title="プロジェクトの概要", subTitle="担当範囲">
+                <Text mode="body">今回担当したのは以下の4つ。</Text>
+                <ul class="list">
+                    <li>
+                        <Text mode="body">サイトのUI/UXデザイン</Text>
+                    </li>
+                    <li>
+                        <Text mode="body">情報設計（サイト設計）</Text>
+                    </li>
+                    <li>
+                        <Text mode="body">デザインシステムの構築</Text>
+                    </li>
+                    <li>
+                        <Text mode="body">フロントエンドエンジニアと協働での開発</Text>
+                    </li>
+                </ul>
+                <br />
+                <Text mode="body">ターゲット：企業の採用担当者</Text>
+                <Text mode="body">開発期間：2ヶ月</Text>
+                <Text mode="body">開発方法：Figmaでデザインシステムとプロトタイプを作成。その後フロントエンドエンジニアと連携し、擦り合わせをしながら実装していく方法をとった。</Text>
+                <Text mode="body">使用ツール：Figma / Gimp</Text>
+                <Text mode="body">ウェブサイト構築方法：独自ドメイン（nodoka-kon.me）を取得後、CDN（Cloudflare）でコンテンツを管理。</Text>
 
-      <Section title="色・スペーシング・Radius" , subTitle="デザインシステム">
-        <Text mode="body"
-          >デザインシステムでPrimaryとSecondaryの色、そして背景・文字に使用するGlayscaleの色味を決定。また、サイト内での間隔（spacing）は4の倍数で設定。ボタンやカードを使用する場合に使う角丸のradiusも3種類を設定した。</Text
-        >
-        <Text mode="body">色の選定について</Text>
-        <Text mode="body"
-          >管理者が特に夜間の作業が多いという理由でダークモードをデフォルトに選択。Primaryに黄色を選んだのは、視認性の良さと「光」のイメージから。Nodoka
-          KONの明るい人柄もそこで表現したいという意図もある。また、マテリアルカラーで補色となる青のカラーバレットをSecondaryとして選択。青と黄色の2色を使用することで、背景のダークブルーで実直さと朗らかさ、柔軟さの両立を図った。グラデーションを用いることで、モダンな雰囲気も演出する狙いがある。</Text
-        >
-        <Image class="image" src={tokensImg} alt="Design System" />
-      </Section>
+                <br />
+                <Text mode="body">リンク：</Text>
+                <LinkWithIcon
+                    href="https://www.figma.com/design/Dh1w2cXiKKEM7KjqUswaya/Nodoka-Portfolio?node-id=27-129&p=f&t=KpJVTFB8jLDiI45X-0&t=KpJVTFB8jLDiI45X-0"
+                    target="_blank"
+                    icon="external"
+                >
+                    Figma
+                </LinkWithIcon>
+                <LinkWithIcon
+                    href="https://nodoka-kon.me/ui-kit/"
+                    target="_blank"
+                    icon="external"
+                >
+                    UI Kit
+                </LinkWithIcon>
+            </Section>
+            
+            <Section title="デザインシステム", subTitle="色・スペーシング・Radius">
+                <Text mode="body">色：ダークモードをデフォルトに設定。Primaryは黄色（光・明るさのイメージ）、Secondaryは補色の青（誠実さ・柔軟さ）</Text>
+                <Text mode="body">間隔：spacingは4の倍数で統一</Text>
+                <Text mode="body">角丸：ボタン・カード用に3種類を設定</Text>
+                 <Text mode="body">デザインコンセプト：グラデーションでモダンさを演出しつつ、使いやすさと親しみやすさを両立。</Text>
+                <Image class="image" src={tokensImg} alt="Design System" />
+            </Section>
 
-      <Section
-        title="フォント・行間（line-spacing）"
-        ,
-        subTitle="デザインシステム"
-      >
-        <Text mode="body"
-          >フォント、h2・h3・本文それぞれのフォントサイズを設定した。それぞれのフォントサイズに合わせて、行間も設定。文字が大きいほど行間を広くとり、視認性を確保している。</Text
-        >
-        <Image class="image" src={tokens2Img} alt="Design System" />
-      </Section>
+        <Section
+            title="フォント・行間（line-spacing）",subTitle="デザインシステム">
+            <Text mode="body">フォントはIBM Plex Sans JP Regularを使用。フォント、h2・h3・本文それぞれのフォントサイズを設定した。それぞれのフォントサイズに合わせて、行間も設定。文字が大きいほど行間を広くとり、視認性を確保している。</Text>
+            <Image class="image" src={tokens2Img} alt="Design System" />
+        </Section>
 
-      <Section title="コンポーネント作成" , subTitle="デザインシステム">
-        <Text mode="body"
-          >サイトで使用するエレメントをコンポーネント化。プロトタイプは、これらコンポーネントを組み合わせて作成。ボタンや、チップはPrimary・SecondaryなどVariantを設定し、使いたいモードをすぐに使えるようにしている。</Text
-        >
-      </Section>
+        <Section title="コンポーネント作成" , subTitle="デザインシステム">
+            <Text mode="body"
+            >サイトで使用するエレメントをコンポーネント化。プロトタイプは、これらコンポーネントを組み合わせて作成。ボタンや、チップはPrimary・SecondaryなどVariantを設定し、使いたいモードをすぐに使えるようにしている。</Text>
+            <Image class="image" src={componentsImg} alt="Figma Components" width={500} />
+        </Section>
 
-      <Section title="プロトタイプの作成" , subTitle="UXデザイン">
-        <Text mode="body">ページの最終形態をプロトタイプに落とし込む。</Text>
-      </Section>
+        <Section title="プロトタイプの作成" , subTitle="UXデザイン">
+            <Text mode="body">ページの最終形態をプロトタイプに落とし込む。</Text>
+                        <Image class="image" src={figmaImg} alt="Figma Screenshot" />
+        </Section>
+        <Section title="UIキットの作成" , subTitle="デザインシステム">
+            <Text mode="body"
+            >デザインシステムをもとにStorybookを作成。実装されたコンポーネントを見ることができる。<a
+                target="_blank"
+                href="https://nodoka-kon.me/ui-kit/">https://nodoka-kon.me/ui-kit/</a></Text>
+                <Image class="image" src={uikitImg} alt="UI kit" />
+        </Section>
 
-      <Section title="UIキットの作成" , subTitle="デザインシステム">
-        <Text mode="body"
-          >デザインシステムをもとにStorybookを作成。実装されたコンポーネントを見ることができる。<a
-            target="_blank"
-            href="https://nodoka-kon.me/ui-kit/"
-            >https://nodoka-kon.me/ui-kit/</a
-          ></Text
-        >
-      </Section>
+        <Section title="コーディング" , subTitle="実装">
+            <Text mode="body">エンジニアがコーディングしたテストページを確認後、本番環境にプッシュ。この段階で、相談しながらモバイルビューのデザインも固めた。</Text><Image class="image" src={codingImg} alt="Coding" />
+        </Section>
 
-      <Section title="コーディング" , subTitle="実装">
-        <Text mode="body"
-          >エンジニアがコーディングしたテストページを確認後、本番環境にプッシュ。この段階でモバイルビューのデザインも固めた。</Text
-        >
-      </Section>
-
-      <Section title="サイトの完成図" , subTitle="実装">
-        <Text mode="body">実際に公開されたウェブページ。</Text>
-      </Section>
+        <Section title="Portfolioサイトの最終系" , subTitle="実装後">
+            <Text mode="body">Portfolioサイトの完成版が以下の写真の通り。（※今閲覧いただいているこのサイトが成果物。）誰でも自由に閲覧できる。</Text><Image class="image" src={websiteImg} alt="website" />
+            
+        </div>
     </div>
   </main>
 </Layout>

@@ -44,11 +44,17 @@ const project = projects.find((project) => project.id === "selectra");
         gap: 8px
     }
 
-    .section-container {
+    .section-wrapper {
         background-color: var(--color-grayscale-900);
         padding: var(--spacing-48) var(--spacing-72);
-
+        
         color: var(--color-white);
+    }
+
+    .section-container {
+        max-width: 1024px;
+
+        margin: auto;
 
         display: flex;
         flex-direction: column;
@@ -82,7 +88,7 @@ const project = projects.find((project) => project.id === "selectra");
             padding: 0;
         }
 
-        .section-container { 
+        .section-wrapper { 
             padding: var(--spacing-48) var(--spacing-24);
         }
     }
@@ -101,75 +107,64 @@ const project = projects.find((project) => project.id === "selectra");
                 <Text mode="h3">{desc}</Text>
             ))}
             </div>
-            <Image src={project.image} alt={project.title} layout='full-width' width={800}/>
+            <Image src={project.image} alt={project.title} layout='full-width' width={800} priority/>
         </div>
     </section>
+    <div class="section-wrapper">
     <div class="section-container">
-        <Section title="なぜこのプロジェクトを行ったか", subTitle="出発点">
-            <Text mode="body">一時期からSEOパフォーマンスが低下したことを受け、競合分析を実施。ブランディングの弱さに加え、サービスサイトのUI/UXの課題が浮上。</Text>
-            <Text mode="body">オーガニック検索からの流入が非常に多いサイトであるため今まで注視してこなかったが、トップページからの離脱の多さが目立った。ブランディングの弱さに加え、サービスサイトのUI/UXの課題が浮上。オーガニック流入が多いため軽視されてきたが、トップページでの離脱が目立つ。/UXの課題が浮上。</Text>
-            <Text mode="body">仮説：</Text>
-            <Text mode="body">①迷ってトップページに戻り「怪しい」と感じて離脱</Text>
-            <Text mode="body">②必要な情報が見つからず離脱</Text>
-            <Text mode="body">理想は、ユーザーが次のアクション（閲覧・探索）を起こせる状態。</Text>
-            <Text mode="body">ただし仮説にはバイアスの可能性があるため、第三者の意見も参考にし、的確な問題把握と改修案をもとにエンジニアへ提案する方針とした。</Text>
+    <Section title="プロジェクトの目的とチーム構成", subTitle="プロジェクトの概要">
+        <Text mode="body">UXデザイナーとして、「料金比較セレクトラ」（月間ユーザー数100万）サービストップページのUI/UXを改善する。</Text>
+        <Text mode="body">チーム体制</Text>
+        <ul class="list">
+            <li>
+                <Text mode="body">リサーチャー1名（現状分析の段階）</Text>
+            </li>
+            <li>
+                <Text mode="body">フロントエンドエンジニア1名</Text>
+            </li>
+        </ul>
+    </Section>
+    <Section title="問題定義～実装・テストまで担当", subTitle="担当範囲">
+        <ul class="list">
+            <li>
+                <Text mode="body">現状分析・競合分析</Text>
+            </li>
+            <li>
+                <Text mode="body">問題点の洗い出しと要件定義</Text>
+            </li>
+            <li>
+                <Text mode="body">最初に社内で出た改善案をまとめて最初のプロトタイプ（試作品）をfigmaで作成</Text>
+            </li>
+            <li>
+                <Text mode="body">ユーザビリティテスト（インタビュー形式）実施</Text>
+            </li>
+            <li>
+                <Text mode="body">ユーザビリティテスト結果の分析と考察</Text>
+            </li>
+            <li>
+                <Text mode="body">考察を元に最初に作ったプロトタイプをブラッシュアップ</Text>
+            </li>
+            <li>
+                <Text mode="body">エンジニアに実装の依頼・細かいデザインの調整</Text>
+            </li>
+        </ul>
+    </Section>
+        <Section title="なぜこのプロジェクトを行ったか", subTitle="背景・問題定義">
+            <Text mode="body">自社サイトのSEOパフォーマンスのさらなる向上のため、現状分析・競合分析を実施。ブランディングの課題に加え、サービスサイトのUI/UXの課題が浮上。特にトップページからの離脱の多さが目立った。本サイトはオーガニック検索からの流入が非常に多い一方、トップページからの回遊率の低下は結果として減益につながる可能性があるため、サービストップページのリニューアルを提案。</Text>
+            
+            <Text mode="body">仮説：迷ってトップページに戻るものの必要な情報が見つからず離脱。</Text>
+            <Text mode="body">理想：ユーザーがトップページに入った後、次のアクション（閲覧・探索）をすぐに起こせる状態。</Text>
+            <Text mode="body">バイアスを排除するため、ウェブサイトに利害関係の無い第三者の意見も取り入れることにした。可能な限り的を得た改修案を作成し、それをプロジェクトマネージャー・エンジニアへ提案する方針とした。</Text>
             <Image class="image" src={proposalImg} alt="Proposal" />
             <Image class="image" src={targetImg} alt="Target" />
         </Section>
-
-        <Section title="プロジェクト概要・担当範囲", subTitle="プロジェクトの概要">
-            <Text mode="body">UXデザイナーとして、「料金比較セレクトラ」（月間ユーザー数100万）サービストップページのUI/UXを改善する。</Text>
-            <Text mode="body">チーム体制</Text>
-            <ul class="list">
-                <li>
-                    <Text mode="body">リサーチアシスタント1名</Text>
-                </li>
-                <li>
-                    <Text mode="body">プログラマー1名</Text>
-                </li>
-            </ul>
-        </Section>
-
-        <Section title="主な業務・取り組み", subTitle="仮説とA/Bテスト実施">
-            <ul class="list">
-                <li>
-                    <Text mode="body">問題点の洗い出し</Text>
-                </li>
-                <li>
-                    <Text mode="body">要件定義、スケジュール管理</Text>
-                </li>
-                <li>
-                    <Text mode="body">この段階で考えられる改善案出し</Text>
-                </li>
-                <li>
-                    <Text mode="body">ユーザーインタビュー</Text>
-                </li>
-                <li>
-                    <Text mode="body">ワイヤーフレーム作成</Text>
-                </li>
-                <li>
-                    <Text mode="body">最初に作った改善案のブラッシュアップ</Text>
-                </li>
-                <li>
-                    <Text mode="body">プロトタイプ作成</Text>
-                </li>
-                <li>
-                    <Text mode="body">エンジニアに実装の依頼・細かいデザインの調整</Text>
-                </li>
-            </ul>
-        </Section>
-
-        <Section title="成果", subTitle="最終的に効果はあったか">
-            <Text mode="body">サービストップページに置けるユーザー1人あたりのイベント数+400%達成。サイト内の回遊率UPに貢献。</Text>
-        </Section>
-
-        <Section title="初期改善案を反映したプロトタイプでユーザビリティテスト実施", subTitle="ユーザビリティテスト">
+        <Section title="初期改善案を反映したプロトタイプでユーザビリティテストを実施", subTitle="最初のプロトタイプ（試作品）をfigmaで作成">
             <Text mode="body">チーム内で出た初期改善案を反映したプロトタイプを使用してユーザビリティテストを実施。デスクトップユーザーが多いため、デスクトップビューでテストを実施。デスクトップビューでのレイアウトをもとに、同様のレイアウトをモバイルビューにも反映するというフローを想定。</Text>
             <Image class="image" src={prototypeImg} alt="Prototype" />
         </Section>
 
-        <Section title="実際の質問内容", subTitle="ユーザビリティテスト">
-            <Text mode="body">電気や光回線に対する知識をたずねる質問・タスク依頼・5段階評価の3分野を主にテストした。</Text>
+        <Section title="インタビュー形式で実施", subTitle="ユーザビリティテスト">
+            <Text mode="body">被験者としてセレクトラを知らない私の知人5人を用意。オンラインまたは対面形式で、私（モデレーター）と対話しながら私が用意したタスクを実行してもらった。テスト内容は以下3グループに分かれる。<br />1/ サービス利用における前提知識についての質問に答えてもらう<br />2/ プロトタイプ上でタスクを実行してもらう<br />3/ 全体の印象を5段階で評価してもらう</Text>
             <br />
             <Text mode="body" bold>普段の行動に関する基本的な質問の一例：</Text>
             <ul>
@@ -201,7 +196,7 @@ const project = projects.find((project) => project.id === "selectra");
                 </li>
                  <li>
                     <Text mode="body">何をすればいいかすぐに分かる。</Text>
-                    <Text mode="body">タスクはなるべく現実的なものを選ぶ。一般的に日常生活で起こりそうな行動にする。</Text>
+                    <Text mode="body">※タスクはなるべく現実的なものを選ぶことを心掛けた。一般的に日常生活で起こりそうな行動にする。</Text>
                 </li>
                 
                  <li>
@@ -219,25 +214,26 @@ const project = projects.find((project) => project.id === "selectra");
             <Image class="image" src={tasksImg} alt="Tasks" />
         </Section>
 
-        <Section title="アフィニティダイヤグラム作成", subTitle="ユーザビリティテスト">
+        <Section title="得られたフィードバックをカテゴリ分け", subTitle="ユーザビリティテストの結果分析">
             <Text mode="body">1つ1つのフィードバックを、テーマ別に分類する（アフィニティダイヤグラム化）。主にネガティブフィードバックを抽出。そうすることで、それぞれのフィードバックが視覚情報・ナビゲーション・ブランディングなど何を改善すれば解決できそうなフィードバックかのパターンが浮かび上がる。その後、ユーザビリティへの直接影響が最も高そうかつフィードバックが多かったものをP0（最優先）として、順に優先順位を決定。</Text>
             <Image class="image" src={feedbackImg} alt="Feedback" />
             <Image class="image" src={priorityImg} alt="Feedback" />
         </Section>
 
-        <Section title="初期プロトタイプをブラッシュアップ", subTitle="改善案をブラッシュアップ">
-            <Text mode="body">ユーザビリティテストで浮かび上がったさらなる改善案をもとに、ユーザビリティテストで使用したプロトタイプをブラッシュアップする。</Text>
+        <Section title="初期プロトタイプをブラッシュアップ", subTitle="ユーザビリティテストの結果と考察を形にする">
+            <Text mode="body">ユーザビリティテストで浮かび上がったさらなる改善案をもとに、ユーザビリティテストで使用したプロトタイプをブラッシュアップ。</Text>
+            <Text mode="body">※以下は最終改善案の一例</Text>
             <Image class="image" src={themeImg} alt="Theme" />
         </Section>
-
         <Section title="最終成果物", subTitle="改善案をブラッシュアップ">
             <Text mode="body">最終的にデザインはこのようになった。</Text>
             <Image class="image" src={beforeAfterImg} alt="Theme" />
         </Section>
 
-        <Section title="効果測定", subTitle="改善案をブラッシュアップ">
-            <Text mode="body">新しいホームページを公開してから2か月が経過。リニューアル後のホームページで観察されたパフォーマンスの変化を計測。</Text>
-            <Text mode="body">知りたいことは？：ページのユーザビリティ</Text>
+        <Section title="直帰率・イベント数の変化を見る", subTitle="効果測定">
+            <Text mode="body">新しいホームページを公開してから2か月が経過。リニューアル後のホームページで観察されたパフォーマンスの変化を計測。Google Analytics（GA4）でデータを集計。</Text>
+            <Text mode="body">確かめたいこと：サービストップページのユーザビリティが向上しているかどうか
+</Text>
             <Text mode="body">指標（確認するGA4のメトリクス）は？：</Text>
             <ul class="list">
                 <li>
@@ -250,17 +246,21 @@ const project = projects.find((project) => project.id === "selectra");
                 </li>
             </ul>
         </Section>
+       <Section title="イベント数+400%", subTitle="プロジェクトの成果1">
+            <Text mode="body">サービストップページに置けるユーザー1人あたりのイベント数+400%達成。サイト内の回遊率UPを上げることができた。</Text>
+        </Section>
 
-        <Section title="バウンスレート　-3.48%", subTitle="プロジェクトの好影響">
-            <Text mode="body">トップページに戻ったのち迷って離脱する人が多いという見立てだったが、改善後はバウンスレートの低下＝回遊率アップが見られる。</Text>
-            <Text mode="body">※メトリクスの解釈は2023年当時のもの</Text>
+        <Section title="バウンスレート　-3.48%", subTitle="プロジェクトの成果2">
+            <Text mode="body">案内板の役割を持つページでは、リニューアル後にバウンスレートが低下し、回遊率の向上が確認された。このバウンスレートの減少は、ユーザーが迷ってサイトを離脱するケースが減少していることを示している。</Text>
+            
             <Image class="image" src={dataImg} alt="Data" />
         </Section>
 
-        <Section title="バウンスレート -3.48% 統計的に有意か？ →有意", subTitle="プロジェクトの好影響">
+        <Section title="バウンスレート -3.48% 統計的に有意か？ →有意", subTitle="結果として得られた数値の解釈">
             <Text mode="body">3.48%は誤差の範囲である可能性があるため、この数値が統計的に有意か、偶然によるものかを評価するために、帰無仮説を棄却できるか確認。過去1年間の直帰率の分布を分析した結果、5月における75％の直帰率が発生する確率は5％未満（p &lt; 0.05）であることが分かった。これは、結果が偶然によるものではない可能性が高いことを示し、実施した施策が実際に効果を上げたことを示唆している。</Text>
             <Image class="image" src={statisticsImg} alt="P Value Statistics" />
         </Section>
+    </div>
     </div>
   </main>
 </Layout>

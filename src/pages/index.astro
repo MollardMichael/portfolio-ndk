@@ -10,8 +10,8 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
   .hero {
     position: relative;
     overflow: hidden;
-    padding: var(--spacing-24) calc(var(--spacing-72) + var(--spacing-40))
-      var(--spacing-48) calc(var(--spacing-72) + var(--spacing-40));
+    padding: var(--spacing-24) var(--spacing-96)
+      var(--spacing-48) var(--spacing-96);
     background: var(--gradient-background);
 
     color: var(--color-white);
@@ -38,6 +38,11 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
   }
 
   @media (width > 1024px) {
+    .hero {
+      padding: var(--spacing-24) calc(var(--spacing-96) + var(--spacing-40))
+      var(--spacing-48) calc(var(--spacing-96) + var(--spacing-40));
+    }
+
     .works {
       background-color: var(--color-grayscale-900);
       padding: var(--spacing-48) calc(var(--spacing-96) + var(--spacing-40));
@@ -66,13 +71,10 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
   <main>
     <section class="hero">
       <Text mode="h1">Nodoka Kon</Text>
-      <Text mode="body">SEOスペシャリスト・UXデザイナー</Text>
+      <Text mode="body">ウェブディレクター</Text>
       <div>
-        <Text mode="body">略歴</Text>
         <Text mode="body"
-          >大学卒業後に旅行会社の商品企画を経験後、海外のIT系企業でSEO担当を務める。コンテンツSEO、テクニカルSEO、UI/UXデザイン）幅広い業務を担当しTech業界での経験を5年積む。SEO業務を通して、UI/UXデザインの重要性を再確認。独学でUXデザインの勉強を始め、普段の業務への応用を図る。2023年にはGoogle
-          UXデザインコースを修了。2024年には基本情報技術者試験を取得。</Text
-        >
+          >SEOとUI/UXデザインを得意とするウェブディレクター。問題定義からユーザー行動データ分析、ユーザビリティテスト、ワイヤーフレームやプロトタイプ作成、実装、効果測定まで、一貫してUI/UX改善に取り組む。ユーザー体験を定量・定性の両面から検証し、成果につなげるプロセスを日常的に実践。美しさと心地よさ、機能性を兼ね備えたプロダクトで収益を生み出す仕事に挑戦したい。</Text>
       </div>
       <img class="gradiant" src="/gradiant.svg" />
     </section>

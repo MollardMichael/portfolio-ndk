@@ -44,16 +44,22 @@ const project = projects.find((project) => project.id === "localization");
     gap: 8px;
   }
 
-  .section-container {
-    background-color: var(--color-grayscale-900);
-    padding: var(--spacing-48) var(--spacing-72);
+    .section-wrapper {
+        background-color: var(--color-grayscale-900);
+        padding: var(--spacing-48) var(--spacing-72);
+        
+        color: var(--color-white);
+    }
 
-    color: var(--color-white);
+    .section-container {
+        max-width: 1024px;
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-48);
-  }
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-48);
+    }
 
   .list {
     margin: 0;
@@ -82,7 +88,7 @@ const project = projects.find((project) => project.id === "localization");
       padding: 0;
     }
 
-    .section-container {
+    .section-wrapper {
       padding: var(--spacing-48) var(--spacing-24);
     }
   }
@@ -113,105 +119,113 @@ const project = projects.find((project) => project.id === "localization");
           alt={project.title}
           layout="full-width"
           width={800}
+          priority
         />
       </div>
     </section>
-    <div class="section-container">
-      <Section title="担当範囲" , subTitle="プロジェクトの概要">
-        <Text mode="body">比較的ページビューの多いページを対象とした。</Text>
-        <Text mode="body">使用ツール：Google Optimize A/B testing tool</Text>
-      </Section>
+    <div class="section-wrapper">
+      <div class="section-container">
+        <Section title="プロジェクトの目的・チームメンバー" , subTitle="プロジェクトの概要">
+          <Text mode="body">セレクトラのサイトは会社設立当初からのデザインシステムに基づいて構築されており、その当時は主にアルファベット文化圏を前提として作られていた。
+  そのため、日本語表示にした際に違和感がある箇所が社内で指摘されていたが、長らく「負のレガシー」として残っていた。</Text>
+  <Text mode="body">今後、日本市場で顧客を拡大していくにあたり、このデザイン上の課題を放置することは収益面で不利に働く可能性があると判断し、レガシー解消の一環として改善に着手した。まずは、広範囲で良い影響がありそうなテーマを優先的にピックアップした。</Text>
+  <Text mode="body">チーム体制</Text>
+  <ul>
+  <li>
+  <Text mode="body">デザイナー1名</Text>
+  </li>
+  <li>
+  <Text mode="body">フロントエンドエンジニア1名</Text>
+  </li>
+  </ul>
 
-      <Section
-        title="なぜこのテストを行ったのか？"
-        ,
-        subTitle="仮説とA/Bテスト実施"
-      >
-        <Text mode="body"
-          >当社のウェブサイトのデザインは欧文（ラテン文字）前提で作られている。日本の競合サイトをはじめ、いわゆる読み物系サイト（新聞やブログなど）をチェックしてみたところ、当社のものにくらべてほとんどのサイトで行間が広いことがわかった。行間が、ユーザーがサイト上で感じる快適さと関係があるかどうかを調べるため、私たちはこのA/Bテストを実施することにした。</Text
+        </Section>
+        <Section title="行間によるテキストの圧迫感", subTitle="今回アタックした課題">
+          <Text mode="body"
+            >日本の競合サイトや新聞・ブログなどの「読み物系サイト」を調査したところ、当社サイトに比べて多くのサイトが行間を広めに設定していることが分かった。そこで、行間がユーザーの快適さにどのように影響するかを検証するため、A/Bテストを実施することにした。<br />具体的には、デフォルトよりも行間を広げることで日本語ページの可読性が向上し、その結果として直帰率が低下する、という仮説を立てた。</Text>
+          
+          <div class="image-container"> 
+            <Image
+              class="image"
+              src={competitorResearchImg}
+              alt="Competitor analysis"
+            />
+            <Caption>日本語のウェブサイトで使用される行間(line-height)の調査結果</Caption>
+          </div>
+        </Section>
+
+        <Section
+          title="日本語とラテンアルファベットの空白の差"
+          ,
+          subTitle="なぜこのトピックが重要なのか"
         >
-        <br />
-        <Text mode="body"
-        >デフォルトよりも行間を広げることで、日本語のウェブページが読みやすくなると想定。その結果、デフォルト設定のページよりも直帰率が下がるという仮説を立てた。</Text
-        >
-        <div class="image-container"> 
+          <Text mode="body"
+            >日本語の文字は、小文字や句読点を除き、基本的にすべて同じ高さで構成されている。
+  一方、ラテンアルファベットでは文字ごとに上下の余白（アセンダーやディセンダー）が存在するため、本文全体に自然な空間が生まれる。
+  その結果、日本語のテキストはアルファベットに比べて行間の余白が少なく、全体として窮屈に見えやすい。</Text
+          >
+          <div class="image-container">
+            <Image class="image" src={typoImg} alt="Analysis of website metrics" />
+            <Caption>漢字・かな・ラテン文字の比較 出典：Typography Now @ 2020 Sidepoints publishing</Caption>
+          </div>
+          <div class="image-container">
+            <Image class="image" src={lineHeightImg} alt="Line height" />
+            <Caption>アルファベット、日本語の文章で生まれる空白の違いを示したもの (引用元: https://kilianmuster.com/japanese-the-typography/ 2025年3月14日閲覧)</Caption>
+          </div>
+          <div class="image-container">
+            <Image
+              class="image"
+              src={lineHeightComparisonImg}
+              alt="Line height comparison"
+            />
+            <Caption>競合サイトの平均行間値と、従来セレクトラの行間設定との比較。比較するとSelectraの方が窮屈な印象を与えている。</Caption>
+          </div>
+
+        </Section>
+
+        <Section title="比較対象" , subTitle="A/Bテスト">
+          <Text mode="body">比較内容：行間本文の位置</Text>
+          <ul class="list">
+            <li>
+              <Text mode="body">Originalは1.5em</Text>
+            </li>
+            <li>
+              <Text mode="body">Variant1は1.75em</Text>
+            </li>
+          </ul>
+          <Text mode="body"
+            >※本来は比較要素を1つに絞り対照実験をする所だが、今回は相乗効果を期待してリストのインデントの有無も同時にテストした。</Text
+          >
           <Image
             class="image"
-            src={competitorResearchImg}
-            alt="Competitor analysis"
+            src={abTestOriginalImg}
+            alt="Original version with 1.5em line height"
           />
-          <Caption>日本語のウェブサイトで使用される行間(line-height)の調査結果</Caption>
-        </div>
-      </Section>
-
-      <Section
-        title="日本語とラテンアルファベットの空白の差"
-        ,
-        subTitle="なぜこのトピックが重要なのか"
-      >
-        <Text mode="body"
-          >日本語の文字は小文字や句読点を除きすべて同じ高さである。その点、ラテンアルファベットでは各文字に多くの空白が含まれるため、テキスト本文にスペースがあるように見えるが、日本語の文字はすべて同じ高さであるため、テキスト本文は全体として窮屈に見える。</Text
-        >
-        <div class="image-container">
-          <Image class="image" src={typoImg} alt="Analysis of website metrics" />
-          <Caption>漢字・かな・ラテン文字の比較 - Typography Now @ 2020 Sidepoints publishing</Caption>
-        </div>
-        <div class="image-container">
-          <Image class="image" src={lineHeightImg} alt="Line height" />
-          <Caption>漢字・かな・ラテン文字の比較 - Typography Now @ 2020 Sidepoints publアルファベット、日本語の文章で生まれる空白の違いを示したもの (引用元: https://kilianmuster.com/japanese-the-typography/ 2025年3月14日閲覧)ishing</Caption>
-        </div>
-        <div class="image-container">
           <Image
             class="image"
-            src={lineHeightComparisonImg}
-            alt="Line height comparison"
+            src={abTestVariantImg}
+            alt="Variant version with 1.75em line height"
           />
-          <Caption>『センス・オブ・ワンダー（The Sense of Wonder）』針葉樹の葉は銀色のさやをまとい、シダ類はまるで熱帯ジャングルのように青々と茂り、そのとがった一枚一枚の葉先からは水晶のようなしずくをしたたらせます。</Caption>
-        </div>
+        </Section>
 
-      </Section>
-
-      <Section title="比較対象" , subTitle="A/Bテスト">
-        <Text mode="body">比較内容：行間本文の位置</Text>
-        <ul class="list">
-          <li>
-            <Text mode="body">Originalは1.5em</Text>
-          </li>
-          <li>
-            <Text mode="body">Variant1は1.75em</Text>
-          </li>
-        </ul>
-        <Text mode="body"
-          >※本来は比較要素を1つに絞り対照実験をする所だが、今回は相乗効果を期待してリストのインデントの有無も同時にテストした。</Text
-        >
-        <Image
-          class="image"
-          src={abTestOriginalImg}
-          alt="Original version with 1.5em line height"
-        />
-        <Image
-          class="image"
-          src={abTestVariantImg}
-          alt="Variant version with 1.75em line height"
-        />
-      </Section>
-
-      <Section title="結果と考察" , subTitle="結果">
-        <Text mode="body"
-          >テスト期間中、OriginalとVariantの直帰率に有意差は見られなかったため、仮説は棄却された。</Text
-        >
-        <Text mode="body"
-          >しかし、差が見られなかったことから、行間を広げても直帰率は下がらないとも言える。このように、ウェブサイトを見やすく、親しみやすいものにしたいのであれば、行間を広げたり、インデントを入れたりしても、直帰率を下げることは無いと結論づけられる。</Text
-        >
-        <br />
-        <Text mode="body"
-          >line-heightについては、body部分でem2.0がデフォルトとなるように実装。</Text
-        >
-        <div class="image-container">
-          <Image class="image" src={resultImg} alt="Result image" />
-          <Caption>ウェブサイトの行間設定変更(1.5em→2.0em)による見た目の変化</Caption>
-        </div>
-      </Section>
+        <Section title="結果と考察" , subTitle="結果">
+          <Text mode="body"
+            >テスト期間中、OriginalとVariantの直帰率には統計的に有意な差は見られず、仮説は棄却された。</Text
+          >
+          <Text mode="body"
+            >しかし裏を返せば、行間を広げても直帰率が悪化することはなく、少なくとも直帰率低下には影響しないと考えられる。
+  この結果から、ウェブサイトをより見やすく、親しみやすくするために、行間を広げたりインデントを調整したりといった改善を行っても、直帰率に悪影響を与えることはないと結論づけられる。</Text
+          >
+          <br />
+          <Text mode="body"
+            >現在、line-heightについては本文（body）部分で 2.0em をデフォルトとするように実装しており、日本市場向けに展開しているサイトでは全てこの設定が適用されている。</Text
+          >
+          <div class="image-container">
+            <Image class="image" src={resultImg} alt="Result image" />
+            <Caption>ウェブサイトの行間設定変更(1.5em→2.0em)による見た目の変化</Caption>
+          </div>
+        </Section>
+      </div>
     </div>
   </main>
 </Layout>
