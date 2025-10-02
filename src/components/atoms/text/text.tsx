@@ -9,7 +9,7 @@ import { match } from "ts-pattern";
 import "./text.css";
 
 export type TextProps = {
-  mode?: "h1" | "h2" | "h3" | "body" | "small";
+  mode?: "h1" | "h2" | "h3" | "h4" | "body" | "small";
   bold?: boolean;
   inline?: boolean;
   className?: string;
@@ -51,6 +51,15 @@ export const Text = memo(
           >
             {children}
           </h3>
+        ))
+        .with({ mode: "h4" }, () => (
+          <h4
+            ref={forwardedRef}
+            style={style}
+            className={`${inline ? "inline" : "block"} ${className}`}
+          >
+            {children}
+          </h4>
         ))
         .with({ mode: "body", inline: true }, () => (
           <span

@@ -25,7 +25,7 @@ export const projects = [
       "回遊率アップを実現",
     ],
     link: "/projects/selectra",
-    tags: [{ name: "UI Design", mode: "primary" }],
+    tags: [{ name: "Professional Work", mode: "primary" }],
   },
   {
     id: "portfolio",
@@ -36,7 +36,7 @@ export const projects = [
       "デザインシステム作成およびアートディレクション",
     ],
     link: "/projects/portfolio",
-    tags: [{ name: "UI Design", mode: "primary" }],
+    tags: [{ name: "Side Project", mode: "primary" }],
   },
   {
     id: "artful",
@@ -44,10 +44,7 @@ export const projects = [
     image: artImg,
     description: ["アートギャラリーのためのモバイルアプリ"],
     link: "/projects/artful",
-    tags: [
-      { name: "UI Design", mode: "primary" },
-      { name: "UX Design", mode: "secondary" },
-    ],
+    tags: [{ name: "Side Project", mode: "primary" }],
   },
   {
     id: "localization",
@@ -58,10 +55,7 @@ export const projects = [
       "主に欧文・和文における行間の視覚的差異に着目しリサーチ・A/Bテストを実施",
     ],
     link: "/projects/localization",
-    tags: [
-      { name: "UX Design", mode: "primary" },
-      { name: "A/B Testing", mode: "secondary" },
-    ],
+    tags: [{ name: "Professional Work", mode: "primary" }],
   },
   {
     id: "logo",
