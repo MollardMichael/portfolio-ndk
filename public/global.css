@@ -143,8 +143,8 @@ body * {
   /**
 	 * @tokens Typography
 	 */
-  --font-family: IBM Plex Sans JP, Hiragino Sans, Helvetica Neue, Helvetica,
-    sans-serif;
+  --font-family: "IBM Plex Sans JP", "Hiragino Sans", "Helvetica Neue",
+    Helvetica, sans-serif;
 
   /**
 	 * @tokens Typography
@@ -267,7 +267,8 @@ a {
   transition: color 0.4s ease-in-out;
 }
 
-a:hover, a:visited:hover {
+a:hover,
+a:visited:hover {
   color: var(--color-primary-500);
 }
 
