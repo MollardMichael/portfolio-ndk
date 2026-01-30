@@ -15,6 +15,8 @@ import beforeAfterImg from "../../assets/selectra/before-after.png";
 import dataImg from "../../assets/selectra/data.png";
 import themeImg from "../../assets/selectra/theme1.png";
 import statisticsImg from "../../assets/selectra/statistics.png";
+import processBrandingImg from "../../assets/selectra/process-branding.png";
+import processUxImg from "../../assets/selectra/process-ux.png";
 
 const project = projects.find((project) => project.id === "selectra");
 ---
@@ -52,7 +54,7 @@ const project = projects.find((project) => project.id === "selectra");
     }
 
     .section-container {
-        max-width: 1024px;
+        max-width: 760px;
 
         margin: auto;
 
@@ -112,51 +114,103 @@ const project = projects.find((project) => project.id === "selectra");
     </section>
     <div class="section-wrapper">
     <div class="section-container">
-    <Section title="プロジェクトの目的とチーム構成", subTitle="プロジェクトの概要">
-        <Text mode="body">UXデザイナーとして、「料金比較セレクトラ」（月間ユーザー数100万）サービストップページのUI/UXを改善する。</Text>
-        <Text mode="body">チーム体制</Text>
-        <ul class="list">
-            <li>
-                <Text mode="body">リサーチャー1名（現状分析の段階）</Text>
-            </li>
-            <li>
-                <Text mode="body">フロントエンドエンジニア1名</Text>
-            </li>
-        </ul>
-    </Section>
-    <Section title="問題定義～実装・テストまで担当", subTitle="担当範囲">
-        <ul class="list">
-            <li>
-                <Text mode="body">現状分析・競合分析</Text>
-            </li>
-            <li>
-                <Text mode="body">問題点の洗い出しと要件定義</Text>
-            </li>
-            <li>
-                <Text mode="body">最初に社内で出た改善案をまとめて最初のプロトタイプ（試作品）をfigmaで作成</Text>
-            </li>
-            <li>
-                <Text mode="body">ユーザビリティテスト（インタビュー形式）実施</Text>
-            </li>
-            <li>
-                <Text mode="body">ユーザビリティテスト結果の分析と考察</Text>
-            </li>
-            <li>
-                <Text mode="body">考察を元に最初に作ったプロトタイプをブラッシュアップ</Text>
-            </li>
-            <li>
-                <Text mode="body">エンジニアに実装の依頼・細かいデザインの調整</Text>
-            </li>
-        </ul>
-    </Section>
-        <Section title="なぜこのプロジェクトを行ったか", subTitle="背景・問題定義">
-            <Text mode="body">自社サイトのSEOパフォーマンスのさらなる向上のため、現状分析・競合分析を実施。ブランディングの課題に加え、サービスサイトのUI/UXの課題が浮上。特にトップページからの離脱の多さが目立った。本サイトはオーガニック検索からの流入が非常に多い一方、トップページからの回遊率の低下は結果として減益につながる可能性があるため、サービストップページのリニューアルを提案。</Text>
-            
-            <Text mode="body">仮説：迷ってトップページに戻るものの必要な情報が見つからず離脱。</Text>
-            <Text mode="body">理想：ユーザーがトップページに入った後、次のアクション（閲覧・探索）をすぐに起こせる状態。</Text>
-            <Text mode="body">バイアスを排除するため、ウェブサイトに利害関係の無い第三者の意見も取り入れることにした。可能な限り的を得た改修案を作成し、それをプロジェクトマネージャー・エンジニアへ提案する方針とした。</Text>
+        <Section title="担当範囲と成果", subTitle="プロジェクトの概要">
+            <Text mode="body">Role：SEO担当（UXデザイン、ブランディング）</Text>
+            <Text mode="body">Service：通信サービス比較メディア（月間ユーザー数100万）</Text>
+            <Text mode="body">Period：2024.04～2024.08</Text>
+            <Text mode="body">Scope：SEO / UXデザイン改善 / リブランディング</Text>
+            <Text mode="body">Tools：Figma / GA4 / Search Console</Text>
+            <Text mode="body">Outcome：ページ上でのクリック数+400%、直帰率 -3.5%ポイント</Text>
+        </Section>
+        <Section title="ユーザーとサービスをつなぐ「案内板」としてのトップページ再設計", subTitle="問題定義">
+            <Text mode="body">日本市場進出から約5年が経過し、サービスは初期フェーズからスケールフェーズへと移行。 事業の拡大に伴い、市場環境の変化に合わせて、提供価値やミッションも当初の形から変化してきている。</Text>
+            <Text mode="body">サービスの変化</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">取り扱い商材の拡張</Text>
+                    <Text mode="body">電気・ガスの切り替えを中心としたサービスから、インターネット回線、保険、VODなど生活全般を扱うサービスへ</Text>
+                </li>
+                <li>
+                    <Text mode="body">市場における立ち位置の変化</Text>
+                    <Text mode="body">電気料金比較サイト → 生活全般の情報を提供する生活情報サイト</Text>
+
+                </li>
+            </ul>
+        </Section>
+        <Section title="ブランディングとUI/UX改善の2軸", subTitle="プロジェクト方針">
+            <Text mode="body">上記を踏まえ、以下の2軸で改革を行うプロジェクトを立ち上げた。</Text>
+            <Text mode="body">① ブランディング軸</Text>
+            <Text mode="body">ミッション・ビジョンの再定義</Text>
+            <Text mode="body">スローガンおよびサイト名称の見直し</Text>
+            <Text mode="body">② UI/UX軸</Text>
+            <Text mode="body">レガシー化したサービストップページのUI/UXを再設計</Text>
+        </Section>
+        <Section title="UI/UXの課題", subTitle="プロセス">
+            <Text mode="body">現状分析および競合分析を行った結果、サービストップページにおける最大の課題はトップページからの離脱率の高さであると判断した。トップページが「案内板として機能し、次のアクションにつながる状態」を作れなければ、 回遊率の低下はそのまま収益機会の損失につながる。そのため、トップページのUI/UX改善は事業成長に直結する重要なテーマであった。</Text>
             <Image class="image" src={proposalImg} alt="Proposal" />
+        </Section>
+        <Section title="動線が分かりづらく欲しい情報をゲットできていないのでは", subTitle="ユーザー行動に対する仮説">
+            <Text mode="body">現状の仮説</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">オーガニック検索から記事ページに流入</Text>
+                </li>
+                <li>
+                    <Text mode="body">他の情報を求めてトップページへ戻る</Text>
+                </li>
+                <li>
+                    <Text mode="body">必要な情報や導線が分かりづらく、離脱</Text>
+                </li>
+            </ul>
+            <Text mode="body">理想の状態</Text>
+            <ul class="list">
+                <li>
+                    <Text mode="body">トップページに到達した直後に</Text>
+                    <Text mode="body">「次に何ができるか」「どこに何があるか」が直感的に理解できる</Text>
+                </li>
+                <li>
+                    <Text mode="body">ユーザーが迷わず、閲覧・探索といった次のアクションを起こせる状態</Text>
+                </li>
+            </ul>
             <Image class="image" src={targetImg} alt="Target" />
+        </Section>
+        <Section title="第三者の視点を取り入れる→より的を得た解に最短距離で近づく", subTitle="アプローチ">
+            <Text mode="body">
+                主観や社内バイアスを排除するため、
+                Webサイトに直接の利害関係を持たない第三者の意見も取り入れながら課題を整理。
+                現状分析をもとに、再現性のある改修案を作成し、
+                プロジェクトマネージャーおよびエンジニアへ提案する方針とした。
+            </Text>
+        </Section>
+        <Section title="問題定義～実装・テストまで担当", subTitle="プロセス">
+            <ul class="list">
+                <li>
+                    <Text mode="body">現状分析・競合分析</Text>
+                </li>
+                <li>
+                    <Text mode="body">問題点の洗い出しと要件定義</Text>
+                </li>
+                <li>
+                    <Text mode="body">最初に社内で出た改善案をまとめて最初のプロトタイプ（試作品）をfigmaで作成</Text>
+                </li>
+                <li>
+                    <Text mode="body">ユーザビリティテスト（インタビュー形式）実施</Text>
+                </li>
+                <li>
+                    <Text mode="body">ユーザビリティテスト結果の分析と考察</Text>
+                </li>
+                <li>
+                    <Text mode="body">考察を元に最初に作ったプロトタイプをブラッシュアップ</Text>
+                </li>
+                <li>
+                    <Text mode="body">バージョン2のプロトタイプ作成</Text>
+                </li>
+                <li>
+                    <Text mode="body">エンジニアに実装の依頼・細かいデザインの調整</Text>
+                </li>
+            </ul>
+            <Image class="image" src={processBrandingImg} alt="Branding Process" />
+            <Image class="image" src={processUxImg} alt="UX Process" />
         </Section>
         <Section title="初期改善案を反映したプロトタイプでユーザビリティテストを実施", subTitle="最初のプロトタイプ（試作品）をfigmaで作成">
             <Text mode="body">チーム内で出た初期改善案を反映したプロトタイプを使用してユーザビリティテストを実施。デスクトップユーザーが多いため、デスクトップビューでテストを実施。デスクトップビューでのレイアウトをもとに、同様のレイアウトをモバイルビューにも反映するというフローを想定。</Text>
