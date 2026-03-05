@@ -68,6 +68,8 @@ body * {
   --spacing-48: 48px;
   --spacing-72: 72px;
   --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-256: 256px;
 
   --spacing-negative-4: calc(-1 * var(--spacing-4));
   --spacing-negative-8: calc(-1 * var(--spacing-8));
@@ -80,7 +82,8 @@ body * {
   --spacing-negative-48: calc(-1 * var(--spacing-48));
   --spacing-negative-72: calc(-1 * var(--spacing-72));
   --spacing-negative-96: calc(-1 * var(--spacing-96));
-
+  --spacing-negative-128: calc(-1 * var(--spacing-128));
+  --spacing-negative-256: calc(-1 * var(--spacing-256));
   /**
 	 * @tokens Colors
 	 */
@@ -273,5 +276,5 @@ a:visited:hover {
 }
 
 a:visited {
-  color: var(--color-grayscale-300);
+  color: white;
 }

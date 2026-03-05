@@ -22,8 +22,8 @@ export type ProjectCardProps = {
   style?: CSSProperties;
 };
 
-export const ProjectCard = memo<ProjectCardProps>(
-  ({ style, image, title, description, tags, href }) => {
+export const ProjectCard = memo(
+  ({ style, image, title, description, tags, href }: ProjectCardProps) => {
     return (
       <div className="project-card" style={style}>
         <div className="chips">

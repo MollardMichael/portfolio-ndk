@@ -13,17 +13,15 @@ export const Header = memo<HeaderProps>(
 	({ style, mode = "black", currentPath }) => {
 		return (
 			<header className={`header ${mode}`} style={style}>
-				<div className="desktop-title">
-				<Text mode="h3" style={{ margin: 0 }}>
-					Nodoka
-				</Text>
-				<Text mode="h3" style={{ margin: 0 }}>
-					Kon
-				</Text>
-				</div>
-				<Text mode="h3" className="mobile-title" style={{ margin: 0 }}>
-					NK
-				</Text>
+				<a href="/" className={currentPath === "" ? "active" : ""} style={{textDecoration: 'none'}}>
+					<Text mode="h3" className="desktop-title" style={{ margin: 0 }}>
+						Nodoka Kon
+					</Text>
+					<Text mode="h3" className="mobile-title" style={{ margin: 0 }}>
+						NK
+					</Text>
+				</a>
+				
 				<nav aria-labelledby="primary-navigation">
 					<a href="/" className={currentPath === "" ? "active" : ""}>
 						<Text mode="h3" style={{ margin: 0 }}>

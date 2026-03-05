@@ -7,10 +7,6 @@ a:hover, a:visited:hover {
   color: var(--color-primary-500);
 }
 
-a:visited {
-  color: var(--color-grayscale-300);
-}
-
 .link-with-icon {
   display: inline-flex;
   align-items: center;

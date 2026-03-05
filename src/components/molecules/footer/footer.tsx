@@ -36,21 +36,21 @@ export const Footer = memo<FooterProps>(({ style, className = "" }) => {
           </LinkWithIcon>
         </nav>
 
-        <LinkWithIcon
-          href="mailto:nodoka.k036@gmail.com"
-          icon="copy"
-          className="email-link"
-        >
-          nodoka.k036@gmail.com
-        </LinkWithIcon>
-        
+        <div className="contact">
+          <LinkWithIcon
+            href="mailto:nodoka.k036@gmail.com"
+            icon="copy"
+            className="email-link"
+          >
+            nodoka.k036@gmail.com
+          </LinkWithIcon>
+          <Text mode="body">LinkedIn：<a href="https://www.linkedin.com/in/nodoka-k/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/nodoka-k/</a></Text>
+        </div>
 
         <div className="copyright">
           <Text mode="body">2025 © Designed by Nodoka Kon</Text>
         </div>
       </div>
-
-      <img className="gradiant" src="/gradiant.svg" alt="" />
     </footer>
   );
 });

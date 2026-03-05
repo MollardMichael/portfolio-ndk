@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: var(--spacing-48) var(--spacing-96);
-  background: var(--color-grayscale-800);
+  background: var(--color-grayscale-900);
   color: var(--color-white);
 }
 
@@ -44,9 +44,8 @@
   align-self: flex-start;
 }
 
-.footer .email-link {
+.footer .contact {
   color: var(--color-white);
-  text-decoration: underline;
   align-self: flex-start;
 }
 

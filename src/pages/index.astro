@@ -10,9 +10,9 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
   .hero {
     position: relative;
     overflow: hidden;
-    padding: var(--spacing-24) var(--spacing-96)
-      var(--spacing-48) var(--spacing-96);
-    background: var(--gradient-background);
+    padding: var(--spacing-24) var(--spacing-128)
+      var(--spacing-48) var(--spacing-128);
+    background: var(--color-grayscale-900);
 
     color: var(--color-white);
 
@@ -28,7 +28,7 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
 
   .works {
     background-color: var(--color-grayscale-900);
-    padding: var(--spacing-48) var(--spacing-96);
+    padding: var(--spacing-48) var(--spacing-128);
   }
 
   .works .container {
@@ -39,13 +39,13 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
 
   @media (width > 1024px) {
     .hero {
-      padding: var(--spacing-24) calc(var(--spacing-96) + var(--spacing-40))
-      var(--spacing-48) calc(var(--spacing-96) + var(--spacing-40));
+      padding: var(--spacing-24) calc(var(--spacing-128) + var(--spacing-40))
+      var(--spacing-48) calc(var(--spacing-128) + var(--spacing-40));
     }
 
     .works {
       background-color: var(--color-grayscale-900);
-      padding: var(--spacing-48) calc(var(--spacing-96) + var(--spacing-40));
+      padding: var(--spacing-48) calc(var(--spacing-128) + var(--spacing-40));
     }
     .works .container {
       gap: var(--spacing-72);
@@ -72,11 +72,6 @@ import { ProjectCard } from "../components/molecules/project-card/project-card";
     <section class="hero">
       <Text mode="h1">Nodoka Kon</Text>
       <Text mode="body">UI/UXデザイナー</Text>
-      <div>
-        <Text mode="body"
-          >大学卒業後、旅行代理店で商品企画やアプリのコンテンツ企画を経験。その後、グローバルITベンチャー企業にて約5年間、ウェブサービスのUI/UXデザインを中心に、SEOやウェブディレクションに従事。</Text>
-      </div>
-      <img class="gradiant" src="/gradiant.svg" />
     </section>
     <section class="works">
       <div class="container">
