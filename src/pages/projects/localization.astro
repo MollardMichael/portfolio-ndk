@@ -5,6 +5,7 @@ import { projects } from "../../components/projects";
 import { Text } from "../../components/atoms/text/text";
 import { Chip } from "../../components/atoms/chip/chip";
 import { Section } from "../../components/layout/section/section";
+import { TableOfContents } from "../../components/layout/table-of-contents/table-of-contents";
 
 // Dummy images - replace with actual images later
 import competitorResearchImg from "../../assets/localization/competitor-research.png";
@@ -17,6 +18,14 @@ import resultImg from "../../assets/localization/result.png";
 import { Caption } from "../../components/atoms/caption/caption";
 
 const project = projects.find((project) => project.id === "localization");
+
+const tocItems = [
+  { id: "overview", label: "概要" },
+  { id: "challenge", label: "課題" },
+  { id: "why-important", label: "重要な理由" },
+  { id: "ab-test", label: "A/Bテスト" },
+  { id: "result", label: "結果と考察" },
+];
 ---
 
 <style>
@@ -49,12 +58,23 @@ const project = projects.find((project) => project.id === "localization");
         padding: var(--spacing-48) var(--spacing-72);
         
         color: var(--color-white);
+
+        display: flex;
+        gap: var(--spacing-48);
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .toc-sidebar {
+        position: sticky;
+        top: 96px;
+        align-self: flex-start;
+        flex-shrink: 0;
     }
 
     .section-container {
         max-width: 760px;
-
-        margin: auto;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
@@ -91,6 +111,10 @@ const project = projects.find((project) => project.id === "localization");
     .section-wrapper {
       padding: var(--spacing-48) var(--spacing-24);
     }
+
+    .toc-sidebar {
+      display: none;
+    }
   }
 
   .image-container {
@@ -124,8 +148,11 @@ const project = projects.find((project) => project.id === "localization");
       </div>
     </section>
     <div class="section-wrapper">
+      <div class="toc-sidebar">
+        <TableOfContents items={tocItems} client:load />
+      </div>
       <div class="section-container">
-        <Section title="プロジェクトの目的・チームメンバー" , subTitle="プロジェクトの概要">
+        <Section id="overview" title="プロジェクトの目的・チームメンバー" , subTitle="プロジェクトの概要">
           <Text mode="body">セレクトラのサイトは会社設立当初からのデザインシステムに基づいて構築されており、その当時は主にアルファベット文化圏を前提として作られていた。
   そのため、日本語表示にした際に違和感がある箇所が社内で指摘されていたが、長らく「負のレガシー」として残っていた。</Text>
   <Text mode="body">今後、日本市場で顧客を拡大していくにあたり、このデザイン上の課題を放置することは収益面で不利に働く可能性があると判断し、レガシー解消の一環として改善に着手した。まずは、広範囲で良い影響がありそうなテーマを優先的にピックアップした。</Text>
@@ -140,7 +167,7 @@ const project = projects.find((project) => project.id === "localization");
   </ul>
 
         </Section>
-        <Section title="行間によるテキストの圧迫感", subTitle="今回アタックした課題">
+        <Section id="challenge" title="行間によるテキストの圧迫感", subTitle="今回アタックした課題">
           <Text mode="body"
             >日本の競合サイトや新聞・ブログなどの「読み物系サイト」を調査したところ、当社サイトに比べて多くのサイトが行間を広めに設定していることが分かった。そこで、行間がユーザーの快適さにどのように影響するかを検証するため、A/Bテストを実施することにした。<br />具体的には、デフォルトよりも行間を広げることで日本語ページの可読性が向上し、その結果として直帰率が低下する、という仮説を立てた。</Text>
           
@@ -155,6 +182,7 @@ const project = projects.find((project) => project.id === "localization");
         </Section>
 
         <Section
+          id="why-important"
           title="日本語とラテンアルファベットの空白の差"
           ,
           subTitle="なぜこのトピックが重要なのか"
@@ -183,7 +211,7 @@ const project = projects.find((project) => project.id === "localization");
 
         </Section>
 
-        <Section title="比較対象" , subTitle="A/Bテスト">
+        <Section id="ab-test" title="比較対象" , subTitle="A/Bテスト">
           <Text mode="body">比較内容：行間本文の位置</Text>
           <ul class="list">
             <li>
@@ -208,7 +236,7 @@ const project = projects.find((project) => project.id === "localization");
           />
         </Section>
 
-        <Section title="結果と考察" , subTitle="結果">
+        <Section id="result" title="結果と考察" , subTitle="結果">
           <Text mode="body"
             >テスト期間中、OriginalとVariantの直帰率には統計的に有意な差は見られず、仮説は棄却された。</Text
           >

@@ -5,6 +5,7 @@ import { projects } from "../../components/projects";
 import { Text } from "../../components/atoms/text/text";
 import { Chip } from "../../components/atoms/chip/chip";
 import { Section } from "../../components/layout/section/section";
+import { TableOfContents } from "../../components/layout/table-of-contents/table-of-contents";
 import tokensImg from "../../assets/portfolio/tokens.png";
 import tokens2Img from "../../assets/portfolio/tokens2.png";
 import figmaImg from "../../assets/portfolio/figma.png";
@@ -16,6 +17,17 @@ import { LinkWithIcon } from "../../components/atoms/link-with-icon";
 import { ExternalIcon } from "../../components/atoms/icons/external";
 
 const project = projects.find((project) => project.id === "portfolio");
+
+const tocItems = [
+  { id: "overview", label: "概要" },
+  { id: "design-system", label: "デザインシステム" },
+  { id: "typography", label: "フォント・行間" },
+  { id: "components", label: "コンポーネント" },
+  { id: "prototype", label: "プロトタイプ" },
+  { id: "ui-kit", label: "UIキット" },
+  { id: "coding", label: "コーディング" },
+  { id: "final", label: "最終系" },
+];
 ---
 
 <style>
@@ -48,12 +60,23 @@ const project = projects.find((project) => project.id === "portfolio");
         padding: var(--spacing-48) var(--spacing-72);
         
         color: var(--color-white);
+
+        display: flex;
+        gap: var(--spacing-48);
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .toc-sidebar {
+        position: sticky;
+        top: 96px;
+        align-self: flex-start;
+        flex-shrink: 0;
     }
 
     .section-container {
         max-width: 760px;
-
-        margin: auto;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
@@ -90,6 +113,10 @@ const project = projects.find((project) => project.id === "portfolio");
     .section-wrapper {
       padding: var(--spacing-48) var(--spacing-24);
     }
+
+    .toc-sidebar {
+      display: none;
+    }
   }
 </style>
 
@@ -114,8 +141,11 @@ const project = projects.find((project) => project.id === "portfolio");
       </div>
     </section>
     <div class="section-wrapper">
+      <div class="toc-sidebar">
+        <TableOfContents items={tocItems} client:load />
+      </div>
         <div class="section-container">
-            <Section title="担当範囲", subTitle="プロジェクトの概要">
+            <Section id="overview" title="担当範囲", subTitle="プロジェクトの概要">
                 <Text mode="body">今回担当したのは以下の4つ。</Text>
                 <ul class="list">
                     <li>
@@ -156,7 +186,7 @@ const project = projects.find((project) => project.id === "portfolio");
                 </LinkWithIcon>
             </Section>
             
-            <Section title="デザインシステム", subTitle="色・スペーシング・Radius">
+            <Section id="design-system" title="デザインシステム", subTitle="色・スペーシング・Radius">
                 <Text mode="body">色：ダークモードをデフォルトに設定。Primaryは黄色（光・明るさのイメージ）、Secondaryは補色の青（誠実さ・柔軟さ）</Text>
                 <Text mode="body">間隔：spacingは4の倍数で統一</Text>
                 <Text mode="body">角丸：ボタン・カード用に3種類を設定</Text>
@@ -165,22 +195,23 @@ const project = projects.find((project) => project.id === "portfolio");
             </Section>
 
         <Section
+            id="typography"
             title="フォント・行間（line-spacing）",subTitle="デザインシステム">
             <Text mode="body">フォントはIBM Plex Sans JP Regularを使用。フォント、h2・h3・本文それぞれのフォントサイズを設定した。それぞれのフォントサイズに合わせて、行間も設定。文字が大きいほど行間を広くとり、視認性を確保している。</Text>
             <Image class="image" src={tokens2Img} alt="Design System" />
         </Section>
 
-        <Section title="コンポーネント作成" , subTitle="デザインシステム">
+        <Section id="components" title="コンポーネント作成" , subTitle="デザインシステム">
             <Text mode="body"
             >サイトで使用するエレメントをコンポーネント化。プロトタイプは、これらコンポーネントを組み合わせて作成。ボタンや、チップはPrimary・SecondaryなどVariantを設定し、使いたいモードをすぐに使えるようにしている。</Text>
             <Image class="image" src={componentsImg} alt="Figma Components" width={500} />
         </Section>
 
-        <Section title="プロトタイプの作成" , subTitle="UXデザイン">
+        <Section id="prototype" title="プロトタイプの作成" , subTitle="UXデザイン">
             <Text mode="body">ページの最終形態をプロトタイプに落とし込む。</Text>
                         <Image class="image" src={figmaImg} alt="Figma Screenshot" />
         </Section>
-        <Section title="UIキットの作成" , subTitle="デザインシステム">
+        <Section id="ui-kit" title="UIキットの作成" , subTitle="デザインシステム">
             <Text mode="body"
             >デザインシステムをもとにStorybookを作成。実装されたコンポーネントを見ることができる。<a
                 target="_blank"
@@ -188,14 +219,14 @@ const project = projects.find((project) => project.id === "portfolio");
                 <Image class="image" src={uikitImg} alt="UI kit" />
         </Section>
 
-        <Section title="コーディング" , subTitle="実装">
+        <Section id="coding" title="コーディング" , subTitle="実装">
             <Text mode="body">エンジニアがコーディングしたテストページを確認後、本番環境にプッシュ。この段階で、相談しながらモバイルビューのデザインも固めた。</Text><Image class="image" src={codingImg} alt="Coding" />
         </Section>
 
-        <Section title="Portfolioサイトの最終系" , subTitle="実装後">
-            <Text mode="body">Portfolioサイトの完成版が以下の写真の通り。（※今閲覧いただいているこのサイトが成果物。）誰でも自由に閲覧できる。</Text><Image class="image" src={websiteImg} alt="website" />
-            
-        </div>
+        <Section id="final" title="Portfolioサイトの最終系" , subTitle="実装後">
+            <Text mode="body">ポートフォリオサイトの完成版が以下の写真の通り。（※今閲覧いただいているこのサイトが成果物。）誰でも自由に閲覧できる。</Text><Image class="image" src={websiteImg} alt="website" />
+        </Section>
+      </div>
     </div>
   </main>
 </Layout>

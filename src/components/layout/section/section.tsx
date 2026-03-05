@@ -5,15 +5,16 @@ import { Text } from "../../atoms/text/text";
 
 export type SectionProps = {
 	style?: CSSProperties;
+	id?: string;
 	title?: string;
 	subTitle?: string;
 	children: ReactNode;
 };
 
 export const Section = memo<SectionProps>(
-	({ style, subTitle, title, children }) => {
+	({ style, id, subTitle, title, children }) => {
 		return (
-			<section className={"section"} style={style}>
+			<section id={id} className={"section"} style={style}>
 				{subTitle && (
 					<Text mode="h3" className="subtitle" style={{ margin: 0 }}>
 						{subTitle}

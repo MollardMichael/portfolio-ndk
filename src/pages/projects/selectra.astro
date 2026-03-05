@@ -5,6 +5,7 @@ import { projects } from "../../components/projects";
 import { Text } from "../../components/atoms/text/text";
 import { Chip } from "../../components/atoms/chip/chip";
 import { Section } from "../../components/layout/section/section";
+import { TableOfContents } from "../../components/layout/table-of-contents/table-of-contents";
 import proposalImg from "../../assets/selectra/proposal.png";
 import targetImg from "../../assets/selectra/target.png";
 import prototypeImg from "../../assets/selectra/prototype.png";
@@ -19,6 +20,25 @@ import processBrandingImg from "../../assets/selectra/process-branding.png";
 import processUxImg from "../../assets/selectra/process-ux.png";
 
 const project = projects.find((project) => project.id === "selectra");
+
+const tocItems = [
+  { id: "overview", label: "概要" },
+  { id: "problem", label: "問題定義" },
+  { id: "project-policy", label: "プロジェクト方針" },
+  { id: "ux-issues", label: "UI/UXの課題" },
+  { id: "hypothesis", label: "ユーザー行動の仮説" },
+  { id: "approach", label: "アプローチ" },
+  { id: "process", label: "プロセス" },
+  { id: "first-prototype", label: "初期プロトタイプ" },
+  { id: "usability-test", label: "ユーザビリティテスト" },
+  { id: "feedback-analysis", label: "結果分析" },
+  { id: "prototype-v2", label: "ブラッシュアップ" },
+  { id: "final-output", label: "最終成果物" },
+  { id: "measurement", label: "効果測定" },
+  { id: "result-events", label: "成果①" },
+  { id: "result-bounce", label: "成果②" },
+  { id: "statistics", label: "統計的検証" },
+];
 ---
 
 <style>
@@ -51,12 +71,23 @@ const project = projects.find((project) => project.id === "selectra");
         padding: var(--spacing-48) var(--spacing-72);
         
         color: var(--color-white);
+
+        display: flex;
+        gap: var(--spacing-48);
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .toc-sidebar {
+        position: sticky;
+        top: 96px;
+        align-self: flex-start;
+        flex-shrink: 0;
     }
 
     .section-container {
         max-width: 760px;
-
-        margin: auto;
+        width: 100%;
 
         display: flex;
         flex-direction: column;
@@ -93,6 +124,10 @@ const project = projects.find((project) => project.id === "selectra");
         .section-wrapper { 
             padding: var(--spacing-48) var(--spacing-24);
         }
+
+        .toc-sidebar {
+            display: none;
+        }
     }
 </style>
 
@@ -113,8 +148,11 @@ const project = projects.find((project) => project.id === "selectra");
         </div>
     </section>
     <div class="section-wrapper">
-    <div class="section-container">
-        <Section title="担当範囲と成果", subTitle="プロジェクトの概要">
+      <div class="toc-sidebar">
+        <TableOfContents items={tocItems} client:load />
+      </div>
+      <div class="section-container">
+        <Section id="overview" title="担当範囲と成果", subTitle="プロジェクトの概要">
             <Text mode="body">Role：SEO担当（UXデザイン、ブランディング）</Text>
             <Text mode="body">Service：通信サービス比較メディア（月間ユーザー数100万）</Text>
             <Text mode="body">Period：2024.04～2024.08</Text>
@@ -122,7 +160,7 @@ const project = projects.find((project) => project.id === "selectra");
             <Text mode="body">Tools：Figma / GA4 / Search Console</Text>
             <Text mode="body">Outcome：ページ上でのクリック数+400%、直帰率 -3.5%ポイント</Text>
         </Section>
-        <Section title="ユーザーとサービスをつなぐ「案内板」としてのトップページ再設計", subTitle="問題定義">
+        <Section id="problem" title="ユーザーとサービスをつなぐ「案内板」としてのトップページ再設計", subTitle="問題定義">
             <Text mode="body">日本市場進出から約5年が経過し、サービスは初期フェーズからスケールフェーズへと移行。 事業の拡大に伴い、市場環境の変化に合わせて、提供価値やミッションも当初の形から変化してきている。</Text>
             <Text mode="body">サービスの変化</Text>
             <ul class="list">
@@ -137,7 +175,7 @@ const project = projects.find((project) => project.id === "selectra");
                 </li>
             </ul>
         </Section>
-        <Section title="ブランディングとUI/UX改善の2軸", subTitle="プロジェクト方針">
+        <Section id="project-policy" title="ブランディングとUI/UX改善の2軸", subTitle="プロジェクト方針">
             <Text mode="body">上記を踏まえ、以下の2軸で改革を行うプロジェクトを立ち上げた。</Text>
             <Text mode="body">① ブランディング軸</Text>
             <Text mode="body">ミッション・ビジョンの再定義</Text>
@@ -145,11 +183,11 @@ const project = projects.find((project) => project.id === "selectra");
             <Text mode="body">② UI/UX軸</Text>
             <Text mode="body">レガシー化したサービストップページのUI/UXを再設計</Text>
         </Section>
-        <Section title="UI/UXの課題", subTitle="プロセス">
+        <Section id="ux-issues" title="UI/UXの課題", subTitle="プロセス">
             <Text mode="body">現状分析および競合分析を行った結果、サービストップページにおける最大の課題はトップページからの離脱率の高さであると判断した。トップページが「案内板として機能し、次のアクションにつながる状態」を作れなければ、 回遊率の低下はそのまま収益機会の損失につながる。そのため、トップページのUI/UX改善は事業成長に直結する重要なテーマであった。</Text>
             <Image class="image" src={proposalImg} alt="Proposal" />
         </Section>
-        <Section title="動線が分かりづらく欲しい情報をゲットできていないのでは", subTitle="ユーザー行動に対する仮説">
+        <Section id="hypothesis" title="動線が分かりづらく欲しい情報をゲットできていないのでは", subTitle="ユーザー行動に対する仮説">
             <Text mode="body">現状の仮説</Text>
             <ul class="list">
                 <li>
@@ -174,7 +212,7 @@ const project = projects.find((project) => project.id === "selectra");
             </ul>
             <Image class="image" src={targetImg} alt="Target" />
         </Section>
-        <Section title="第三者の視点を取り入れる→より的を得た解に最短距離で近づく", subTitle="アプローチ">
+        <Section id="approach" title="第三者の視点を取り入れる→より的を得た解に最短距離で近づく", subTitle="アプローチ">
             <Text mode="body">
                 主観や社内バイアスを排除するため、
                 Webサイトに直接の利害関係を持たない第三者の意見も取り入れながら課題を整理。
@@ -182,7 +220,7 @@ const project = projects.find((project) => project.id === "selectra");
                 プロジェクトマネージャーおよびエンジニアへ提案する方針とした。
             </Text>
         </Section>
-        <Section title="問題定義～実装・テストまで担当", subTitle="プロセス">
+        <Section id="process" title="問題定義～実装・テストまで担当", subTitle="プロセス">
             <ul class="list">
                 <li>
                     <Text mode="body">現状分析・競合分析</Text>
@@ -212,12 +250,12 @@ const project = projects.find((project) => project.id === "selectra");
             <Image class="image" src={processBrandingImg} alt="Branding Process" />
             <Image class="image" src={processUxImg} alt="UX Process" />
         </Section>
-        <Section title="初期改善案を反映したプロトタイプでユーザビリティテストを実施", subTitle="最初のプロトタイプ（試作品）をfigmaで作成">
+        <Section id="first-prototype" title="初期改善案を反映したプロトタイプでユーザビリティテストを実施", subTitle="最初のプロトタイプ（試作品）をfigmaで作成">
             <Text mode="body">チーム内で出た初期改善案を反映したプロトタイプを使用してユーザビリティテストを実施。デスクトップユーザーが多いため、デスクトップビューでテストを実施。デスクトップビューでのレイアウトをもとに、同様のレイアウトをモバイルビューにも反映するというフローを想定。</Text>
             <Image class="image" src={prototypeImg} alt="Prototype" />
         </Section>
 
-        <Section title="インタビュー形式で実施", subTitle="ユーザビリティテスト">
+        <Section id="usability-test" title="インタビュー形式で実施", subTitle="ユーザビリティテスト">
             <Text mode="body">被験者としてセレクトラを知らない私の知人5人を用意。オンラインまたは対面形式で、私（モデレーター）と対話しながら私が用意したタスクを実行してもらった。テスト内容は以下3グループに分かれる。<br />1/ サービス利用における前提知識についての質問に答えてもらう<br />2/ プロトタイプ上でタスクを実行してもらう<br />3/ 全体の印象を5段階で評価してもらう</Text>
             <br />
             <Text mode="body" bold>普段の行動に関する基本的な質問の一例：</Text>
@@ -268,23 +306,23 @@ const project = projects.find((project) => project.id === "selectra");
             <Image class="image" src={tasksImg} alt="Tasks" />
         </Section>
 
-        <Section title="得られたフィードバックをカテゴリ分け", subTitle="ユーザビリティテストの結果分析">
+        <Section id="feedback-analysis" title="得られたフィードバックをカテゴリ分け", subTitle="ユーザビリティテストの結果分析">
             <Text mode="body">1つ1つのフィードバックを、テーマ別に分類する（アフィニティダイヤグラム化）。主にネガティブフィードバックを抽出。そうすることで、それぞれのフィードバックが視覚情報・ナビゲーション・ブランディングなど何を改善すれば解決できそうなフィードバックかのパターンが浮かび上がる。その後、ユーザビリティへの直接影響が最も高そうかつフィードバックが多かったものをP0（最優先）として、順に優先順位を決定。</Text>
             <Image class="image" src={feedbackImg} alt="Feedback" />
             <Image class="image" src={priorityImg} alt="Feedback" />
         </Section>
 
-        <Section title="初期プロトタイプをブラッシュアップ", subTitle="ユーザビリティテストの結果と考察を形にする">
+        <Section id="prototype-v2" title="初期プロトタイプをブラッシュアップ", subTitle="ユーザビリティテストの結果と考察を形にする">
             <Text mode="body">ユーザビリティテストで浮かび上がったさらなる改善案をもとに、ユーザビリティテストで使用したプロトタイプをブラッシュアップ。</Text>
             <Text mode="body">※以下は最終改善案の一例</Text>
             <Image class="image" src={themeImg} alt="Theme" />
         </Section>
-        <Section title="最終成果物", subTitle="改善案をブラッシュアップ">
+        <Section id="final-output" title="最終成果物", subTitle="改善案をブラッシュアップ">
             <Text mode="body">最終的にデザインはこのようになった。</Text>
             <Image class="image" src={beforeAfterImg} alt="Theme" />
         </Section>
 
-        <Section title="直帰率・イベント数の変化を見る", subTitle="効果測定">
+        <Section id="measurement" title="直帰率・イベント数の変化を見る", subTitle="効果測定">
             <Text mode="body">新しいホームページを公開してから2か月が経過。リニューアル後のホームページで観察されたパフォーマンスの変化を計測。Google Analytics（GA4）でデータを集計。</Text>
             <Text mode="body">確かめたいこと：サービストップページのユーザビリティが向上しているかどうか
 </Text>
@@ -300,17 +338,17 @@ const project = projects.find((project) => project.id === "selectra");
                 </li>
             </ul>
         </Section>
-       <Section title="イベント数+400%", subTitle="プロジェクトの成果1">
+       <Section id="result-events" title="イベント数+400%", subTitle="プロジェクトの成果1">
             <Text mode="body">サービストップページに置けるユーザー1人あたりのイベント数+400%達成。サイト内の回遊率UPを上げることができた。</Text>
         </Section>
 
-        <Section title="バウンスレート　-3.48%", subTitle="プロジェクトの成果2">
+        <Section id="result-bounce" title="バウンスレート　-3.48%", subTitle="プロジェクトの成果2">
             <Text mode="body">案内板の役割を持つページでは、リニューアル後にバウンスレートが低下し、回遊率の向上が確認された。このバウンスレートの減少は、ユーザーが迷ってサイトを離脱するケースが減少していることを示している。</Text>
             
             <Image class="image" src={dataImg} alt="Data" />
         </Section>
 
-        <Section title="バウンスレート -3.48% 統計的に有意か？ →有意", subTitle="結果として得られた数値の解釈">
+        <Section id="statistics" title="バウンスレート -3.48% 統計的に有意か？ →有意", subTitle="結果として得られた数値の解釈">
             <Text mode="body">3.48%は誤差の範囲である可能性があるため、この数値が統計的に有意か、偶然によるものかを評価するために、帰無仮説を棄却できるか確認。過去1年間の直帰率の分布を分析した結果、5月における75％の直帰率が発生する確率は5％未満（p &lt; 0.05）であることが分かった。これは、結果が偶然によるものではない可能性が高いことを示し、実施した施策が実際に効果を上げたことを示唆している。</Text>
             <Image class="image" src={statisticsImg} alt="P Value Statistics" />
         </Section>
